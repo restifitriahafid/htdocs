@@ -14,7 +14,8 @@
         
         echo "<p>Halo <b>$nama</b>, hari ini tanggal <b>$tanggal</b>.</p>";
         echo "<p>Kodingan PHP kamu berhasil berjalan via MAMP!</p>";
-    ?>
+    ?><p>Tes perubahan baru!</p>
+    
 
 </body>
 </html>
