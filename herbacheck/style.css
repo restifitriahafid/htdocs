@@ -1,0 +1,172 @@
+/* Hero Search Area */
+.hero-search-section {
+    background-color: #e8f5e9;
+    padding: 30px 0;
+    border-bottom: 2px solid #c8e6c9;
+}
+.hero-search-section h2 {
+    color: #1b5e20;
+    margin-bottom: 5px;
+}
+.hero-search-section .subtitle {
+    color: #444;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+.search-box-wrapper {
+    max-width: 650px;
+    margin: auto;
+}
+.search-input {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 0.95rem;
+    border: 2px solid #2e7d32;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.popular-searches {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #555;
+}
+.popular-tag {
+    color: #2e7d32;
+    text-decoration: underline;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+/* Badges pada Kartu Tanaman */
+.badges {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+.badge {
+    font-size: 0.73rem;
+    padding: 3px 6px;
+    border-radius: 3px;
+    display: block;
+}
+.badge.khasiat {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #c8e6c9;
+}
+.badge.sediaan {
+    background-color: #fff3e0;
+    color: #e65100;
+    border: 1px solid #ffe0b2;
+}
+.btn-detail {
+    display: block;
+    text-align: center;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    padding: 7px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+.btn-detail:hover {
+    background-color: #1b5e20;
+}
+
+/* Sidebar Specifics */
+.widget-consultation {
+    background-color: #e8f5e9;
+    border-color: #a5d6a7;
+}
+.consult-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+.btn-consult {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+.btn-consult.apoteker {
+    background-color: #0288d1;
+    color: white;
+}
+.btn-consult.dokter {
+    background-color: #2e7d32;
+    color: white;
+}
+.trending-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.trending-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+}
+.trending-list a {
+    color: #333;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+.quick-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.quick-tags a {
+    background: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    color: #333;
+    text-decoration: none;
+}
+/* Mengatur Gambar Segi Empat tanpa Terpotong (No Crop) */
+.plant-img {
+    width: 10%;
+    aspect-ratio: 1 / 1;    /* Membuat bentuk kotak/segi empat sempurna */
+    object-fit: contain;     /* Memastikan seluruh gambar tampil utuh tanpa terpotong */
+    background-color: #f9f9f9; /* Latar belakang halus jika gambar asli bukan rasio 1:1 */
+    border-radius: 6px;
+    margin-bottom: 15px;
+    display: block;
+}
+/* Mengatur Grid Galeri Tanaman agar Menyamping */
+.plant-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    gap: 20px !important;
+    margin-top: 15px;
+}
+
+/* Mengatur Kartu Tanaman */
+.plant-card {
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    border-radius: 8px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Mengatur Gambar Segi Empat (No Crop) */
+.plant-img {
+    width: 100% !important;
+    height: 160px !important;       /* Batasi tinggi gambar */
+    object-fit: contain !important;  /* Foto utuh tanpa terpotong */
+    background-color: #f9f9f9;     /* Latar belakang jika rasio beda */
+    border-radius: 6px;
+    margin-bottom: 10px;
+    display: block;
+}
