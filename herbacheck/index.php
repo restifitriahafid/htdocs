@@ -1,223 +1,182 @@
 <?php include 'header.php'; ?>
 
-<!-- HERO & SEARCH SECTION WITH CAMERA SCAN -->
-<section class="hero-search-section">
-    <div class="container text-center">
-        <h2>Kenali Tanaman Herbal untuk Pilihan yang Lebih Bijak</h2>
-        <p class="subtitle">Temukan informasi tanaman herbal, manfaat, kandungan, bentuk sediaan, serta rekomendasi penggunaan.</p>
-        
-        <div class="search-box-wrapper" style="position: relative;">
-            <form action="index.php" method="GET" class="main-search-form" onsubmit="return false;" style="display: flex; gap: 8px; align-items: center;">
-                <input type="text" id="searchInput" class="search-input" placeholder="🔍 Cari nama tanaman, nama latin, khasiat, atau sediaan..." style="flex: 1;">
-                
-                <!-- TOMBOL SCAN KAMERA -->
-                <button type="button" onclick="openCameraModal()" style="background-color: #2e7d32; color: white; border: none; padding: 10px 16px; border-radius: 20px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 5px; white-space: nowrap;">
-                    📷 Scan
-                </button>
-            </form>
+<main class="main-column">
+    <div class="container layout-wrapper" style="margin-top: 25px; margin-bottom: 40px;">
 
-            <div class="popular-searches">
-                <span>Pencarian populer:</span>
-                <a href="#" class="popular-tag" onclick="searchTag('Jahe')">Jahe</a>
-                <a href="#" class="popular-tag" onclick="searchTag('Kunyit')">Kunyit</a>
-                <a href="#" class="popular-tag" onclick="searchTag('Temulawak')">Temulawak</a>
-                <a href="#" class="popular-tag" onclick="searchTag('Pegagan')">Pegagan</a>
-                <a href="#" class="popular-tag" onclick="searchTag('Sambiloto')">Sambiloto</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- MODAL POPUP KAMERA SCAN OTOMATIS -->
-<div id="cameraModal" style="display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); justify-content: center; align-items: center;">
-    <div style="background: white; padding: 20px; border-radius: 12px; width: 90%; max-width: 400px; text-align: center; position: relative;">
-        <h3 style="margin-top: 0; color: #1b5e20;">📷 Scan Tanaman Herbal</h3>
-        <p id="scanStatus" style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Arahkan kamera ke daun atau rimpang tanaman herbal.</p>
-        
-        <!-- ELEMENT VIDEO KAMERA -->
-        <div style="position: relative; overflow: hidden; border-radius: 8px;">
-            <video id="webcam" autoplay playsinline style="width: 100%; height: 250px; object-fit: cover; background: #000; display: block;"></video>
-            <!-- ANIMASI GARIS SCANNER -->
-            <div id="scanLine" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: #2e7d32; box-shadow: 0 0 10px #2e7d32; animation: scanAnim 1.5s infinite linear;"></div>
-        </div>
-
-        <div style="margin-top: 15px; display: flex; gap: 10px; justify-content: center;">
-            <button id="btnDetect" onclick="captureAndScan()" style="background-color: #2e7d32; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer;">
-                🔍 Deteksi Tanaman
-            </button>
-            <button onclick="closeCameraModal()" style="background-color: #d32f2f; color: white; border: none; padding: 10px 15px; border-radius: 6px; font-weight: bold; cursor: pointer;">
-                Batal
-            </button>
-        </div>
-    </div>
-</div>
-
-<style>
-@keyframes scanAnim {
-    0% { top: 0%; }
-    50% { top: 95%; }
-    100% { top: 0%; }
-}
-</style>
-
-<!-- LAYOUT 2 KOLOM -->
-<div class="container layout-wrapper">
-    <!-- KOLOM KIRI: DIREKTORI & GALERI -->
-    <main class="main-column">
-        
-        <!-- MULTI-FILTER DIREKTORI -->
-        <section class="filter-box">
-            <h3>📂 DIREKTORI TANAMAN HERBAL</h3>
-            <div class="filter-grid">
-                <select id="filterKhasiat">
-                    <option value="">-- Semua Kategori Khasiat --</option>
-                    <option value="antioksidan">Antioksidan</option>
-                    <option value="antiinflamasi">Antiinflamasi</option>
-                    <option value="antibakteri">Antibakteri</option>
-                    <option value="antidiabetes">Antidiabetes</option>
-                    <option value="pencernaan">Pencernaan</option>
-                    <option value="imunitas">Imunitas</option>
-                </select>
-
-                <select id="filterPenyakit">
-                    <option value="">-- Semua Kondisi Kesehatan --</option>
-                    <option value="batuk">Batuk</option>
-                    <option value="diabetes">Diabetes</option>
-                    <option value="diare">Diare</option>
-                    <option value="hipertensi">Hipertensi</option>
-                    <option value="mual">Mual</option>
-                    <option value="pencernaan">Gangguan Pencernaan</option>
-                </select>
-
-                <select id="filterSediaan">
-                    <option value="">-- Semua Bentuk Sediaan --</option>
-                    <option value="ekstrak">Ekstrak</option>
-                    <option value="kapsul">Kapsul</option>
-                    <option value="serbuk">Serbuk</option>
-                    <option value="simplisia">Simplisia</option>
-                    <option value="sirup">Sirup</option>
-                    <option value="teh">Teh Herbal</option>
-                </select>
-            </div>
-        </section>
-
-        <!-- INDEKS NAMA LATIN A-Z -->
-        <section class="index-box">
-            <h4>🔤 INDEKS BERDASARKAN NAMA LATIN</h4>
-            <div class="alphabet-list">
-                <?php foreach(range('A', 'Z') as $char): ?>
-                    <a href="#" onclick="searchTag('<?php echo $char; ?>')"><?php echo $char; ?></a>
-                <?php endforeach; ?>
-            </div>
-        </section>
-
-        <!-- GALERI TANAMAN HERBAL -->
-        <section class="gallery-section">
-            <h4>🌿 HASIL PENCARIAN TANAMAN HERBAL</h4>
+        <!-- BAGIAN FILTER & PENCARIAN -->
+        <div class="search-filter-section" style="background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #e0e0e0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 25px;">
+            <h3 style="margin-top: 0; color: #1b5e20; font-size: 1.2rem;">🔍 DIREKTORI TANAMAN HERBAL</h3>
             
-            <div id="emptyNotice" style="text-align: center; padding: 40px 20px; color: #666; background: #fafafa; border: 1px dashed #ccc; border-radius: 6px;">
-                <p style="font-size: 1rem; margin: 0;">🔍 <strong>Ketik nama tanaman, pilih filter, atau klik Scan Kamera</strong> untuk melihat informasi tanaman herbal.</p>
-            </div>
-
-            <div class="plant-grid" id="plantGrid" style="display: none;">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                <input type="text" id="searchInput" placeholder="Ketik nama tanaman, khasiat, atau penyakit..." style="flex: 2; min-width: 200px; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
                 
+                <select id="filterKhasiat" style="flex: 1; min-width: 150px; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+                    <option value="">-- Semua Khasiat --</option>
+                    <option value="Antioksidan">Antioksidan</option>
+                    <option value="Antiinflamasi">Antiinflamasi</option>
+                    <option value="Analgesik">Analgesik / Nyeri</option>
+                    <option value="Antiseptik">Antiseptik / Antibakteri</option>
+                    <option value="Sirkulasi">Sirkulasi Darah / Otak</option>
+                </select>
+
+                <select id="filterPenyakit" style="flex: 1; min-width: 150px; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+                    <option value="">-- Semua Kondisi --</option>
+                    <option value="Pencernaan">Gangguan Pencernaan</option>
+                    <option value="Demam">Demam / Batuk / Flu</option>
+                    <option value="Luka">Luka / Kulit</option>
+                    <option value="Asma">Asma / Pernapasan</option>
+                    <option value="Pikun">Pikun / Memori</option>
+                </select>
+
+                <button onclick="openCameraModal()" style="background-color: #2e7d32; color: white; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+                    📷 Scan Kamera
+                </button>
+            </div>
+        </div>
+
+        <!-- GALERI TANAMAN HERBAL (GRID) -->
+        <section class="gallery-section">
+            <h3 style="color: #2e7d32; margin-bottom: 15px;">🌿 HASIL PENCARIAN TANAMAN HERBAL</h3>
+
+            <div class="plant-grid" id="plantGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
+
                 <!-- 1. Kunyit -->
-                <div class="plant-card" data-nama="kunyit curcuma longa antioksidan pencernaan simplisia serbuk ekstrak c">
-                    <img src="images/kunyit.jpg" alt="Kunyit" class="plant-img">
-                    <h5 class="nama-lokal" style="margin: 4px 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Kunyit</h5>
-                    <p class="nama-latin" style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Curcuma longa</p>
-                    <div class="badges">
-                        <span class="badge khasiat">Antioksidan • Pencernaan</span>
-                        <span class="badge sediaan">Simplisia • Serbuk • Ekstrak</span>
+                <div class="plant-card" data-nama="Kunyit Curcuma longa Antioksidan Antiinflamasi Pencernaan" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <img src="images/kunyit.jpg" alt="Kunyit" style="width: 100%; aspect-ratio: 1/1; object-fit: contain; border-radius: 6px; background: #fafafa;">
+                    <div class="plant-card-body" style="margin-top: 10px;">
+                        <h4 style="margin: 0; color: #1b5e20;">Kunyit</h4>
+                        <p style="margin: 2px 0 10px 0; font-style: italic; color: #666; font-size: 0.85rem;">Curcuma longa</p>
+                        <span style="background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; font-weight: bold;">Antioksidan • Pencernaan</span>
+                        <a href="detail.php?id=1" style="display: block; text-align: center; background: #2e7d32; color: white; text-decoration: none; padding: 8px; border-radius: 6px; font-weight: bold; margin-top: 12px; font-size: 0.85rem;">Lihat Detail</a>
                     </div>
-                    <a href="detail.php?id=1" class="btn-detail">Lihat Detail</a>
                 </div>
 
                 <!-- 2. Temulawak -->
-                <div class="plant-card" data-nama="temulawak curcuma zanthorrhiza kesehatan hati imunitas kapsul sirup c">
-                    <img src="images/temulawak.jpg" alt="Temulawak" class="plant-img">
-                    <h5 class="nama-lokal" style="margin: 4px 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Temulawak</h5>
-                    <p class="nama-latin" style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Curcuma zanthorrhiza</p>
-                    <div class="badges">
-                        <span class="badge khasiat">Kesehatan Hati • Imunitas</span>
-                        <span class="badge sediaan">Kapsul • Sirup</span>
+                <div class="plant-card" data-nama="Temulawak Curcuma zanthorrhiza Hepatoprotektor Hati Imunitas" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <img src="images/temulawak.jpg" alt="Temulawak" style="width: 100%; aspect-ratio: 1/1; object-fit: contain; border-radius: 6px; background: #fafafa;">
+                    <div class="plant-card-body" style="margin-top: 10px;">
+                        <h4 style="margin: 0; color: #1b5e20;">Temulawak</h4>
+                        <p style="margin: 2px 0 10px 0; font-style: italic; color: #666; font-size: 0.85rem;">Curcuma zanthorrhiza</p>
+                        <span style="background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; font-weight: bold;">Kesehatan Hati • Imunitas</span>
+                        <a href="detail.php?id=2" style="display: block; text-align: center; background: #2e7d32; color: white; text-decoration: none; padding: 8px; border-radius: 6px; font-weight: bold; margin-top: 12px; font-size: 0.85rem;">Lihat Detail</a>
                     </div>
-                    <a href="detail.php?id=2" class="btn-detail">Lihat Detail</a>
                 </div>
 
                 <!-- 3. Jahe -->
-                <div class="plant-card" data-nama="jahe zingiber officinale antioksidan pencernaan serbuk ekstrak teh z">
-                    <img src="images/jahe.jpg" alt="Jahe" class="plant-img">
-                    <h5 class="nama-lokal" style="margin: 4px 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Jahe</h5>
-                    <p class="nama-latin" style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Zingiber officinale</p>
-                    <div class="badges">
-                        <span class="badge khasiat">Antioksidan • Pencernaan</span>
-                        <span class="badge sediaan">Serbuk • Ekstrak • Teh</span>
+                <div class="plant-card" data-nama="Jahe Zingiber officinale Mual Batuk Flu Warming" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <img src="images/jahe.jpg" alt="Jahe" style="width: 100%; aspect-ratio: 1/1; object-fit: contain; border-radius: 6px; background: #fafafa;">
+                    <div class="plant-card-body" style="margin-top: 10px;">
+                        <h4 style="margin: 0; color: #1b5e20;">Jahe</h4>
+                        <p style="margin: 2px 0 10px 0; font-style: italic; color: #666; font-size: 0.85rem;">Zingiber officinale</p>
+                        <span style="background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; font-weight: bold;">Mual • Batuk & Flu</span>
+                        <a href="detail.php?id=3" style="display: block; text-align: center; background: #2e7d32; color: white; text-decoration: none; padding: 8px; border-radius: 6px; font-weight: bold; margin-top: 12px; font-size: 0.85rem;">Lihat Detail</a>
                     </div>
-                    <a href="detail.php?id=3" class="btn-detail">Lihat Detail</a>
                 </div>
 
                 <!-- 4. Sambiloto -->
-                <div class="plant-card" data-nama="sambiloto andrographis paniculata antidiabetes imunitas kapsul ekstrak a">
-                    <img src="images/sambiloto.jpg" alt="Sambiloto" class="plant-img">
-                    <h5 class="nama-lokal" style="margin: 4px 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Sambiloto</h5>
-                    <p class="nama-latin" style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Andrographis paniculata</p>
-                    <div class="badges">
-                        <span class="badge khasiat">Antidiabetes • Imunitas</span>
-                        <span class="badge sediaan">Kapsul • Ekstrak</span>
+                <div class="plant-card" data-nama="Sambiloto Andrographis paniculata Antidiabetes Imunitas Demam" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <img src="images/sambiloto.jpg" alt="Sambiloto" style="width: 100%; aspect-ratio: 1/1; object-fit: contain; border-radius: 6px; background: #fafafa;">
+                    <div class="plant-card-body" style="margin-top: 10px;">
+                        <h4 style="margin: 0; color: #1b5e20;">Sambiloto</h4>
+                        <p style="margin: 2px 0 10px 0; font-style: italic; color: #666; font-size: 0.85rem;">Andrographis paniculata</p>
+                        <span style="background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; font-weight: bold;">Antidiabetes • Demam</span>
+                        <a href="detail.php?id=4" style="display: block; text-align: center; background: #2e7d32; color: white; text-decoration: none; padding: 8px; border-radius: 6px; font-weight: bold; margin-top: 12px; font-size: 0.85rem;">Lihat Detail</a>
                     </div>
-                    <a href="detail.php?id=4" class="btn-detail">Lihat Detail</a>
                 </div>
 
                 <!-- 5. Pegagan -->
-                <div class="plant-card" data-nama="pegagan centella asiatica sistem saraf antioksidan teh kapsul c">
-                    <img src="images/pegagan.jpg" alt="Pegagan" class="plant-img">
-                    <h5 class="nama-lokal" style="margin: 4px 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Pegagan</h5>
-                    <p class="nama-latin" style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Centella asiatica</p>
-                    <div class="badges">
-                        <span class="badge khasiat">Sistem Saraf • Antioksidan</span>
-                        <span class="badge sediaan">Teh • Kapsul</span>
+                <div class="plant-card" data-nama="Pegagan Centella asiatica Daya Ingat Saraf Luka Pikun" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <img src="images/pegagan.jpg" alt="Pegagan" style="width: 100%; aspect-ratio: 1/1; object-fit: contain; border-radius: 6px; background: #fafafa;">
+                    <div class="plant-card-body" style="margin-top: 10px;">
+                        <h4 style="margin: 0; color: #1b5e20;">Pegagan</h4>
+                        <p style="margin: 2px 0 10px 0; font-style: italic; color: #666; font-size: 0.85rem;">Centella asiatica</p>
+                        <span style="background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; font-weight: bold;">Kesehatan Saraf • Luka</span>
+                        <a href="detail.php?id=5" style="display: block; text-align: center; background: #2e7d32; color: white; text-decoration: none; padding: 8px; border-radius: 6px; font-weight: bold; margin-top: 12px; font-size: 0.85rem;">Lihat Detail</a>
                     </div>
-                    <a href="detail.php?id=5" class="btn-detail">Lihat Detail</a>
+                </div>
+
+                <!-- 6. Asam Jawa -->
+                <div class="plant-card" data-nama="Asam Jawa Tamarindus indica Linn Asma Batuk Demam Biduren" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <img src="images/asam_jawa.jpg" alt="Asam Jawa" style="width: 100%; aspect-ratio: 1/1; object-fit: contain; border-radius: 6px; background: #fafafa;">
+                    <div class="plant-card-body" style="margin-top: 10px;">
+                        <h4 style="margin: 0; color: #1b5e20;">Asam Jawa</h4>
+                        <p style="margin: 2px 0 10px 0; font-style: italic; color: #666; font-size: 0.85rem;">Tamarindus indica, Linn</p>
+                        <span style="background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; font-weight: bold;">Batuk • Asma • Demam</span>
+                        <a href="detail.php?id=6" style="display: block; text-align: center; background: #2e7d32; color: white; text-decoration: none; padding: 8px; border-radius: 6px; font-weight: bold; margin-top: 12px; font-size: 0.85rem;">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <!-- 7. Selasih -->
+                <div class="plant-card" data-nama="Selasih Ocimum basilicum L. Analgesik Antiseptik Antibakteri Luka" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <img src="images/selasih.jpg" alt="Selasih" style="width: 100%; aspect-ratio: 1/1; object-fit: contain; border-radius: 6px; background: #fafafa;">
+                    <div class="plant-card-body" style="margin-top: 10px;">
+                        <h4 style="margin: 0; color: #1b5e20;">Selasih</h4>
+                        <p style="margin: 2px 0 10px 0; font-style: italic; color: #666; font-size: 0.85rem;">Ocimum basilicum L.</p>
+                        <span style="background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; font-weight: bold;">Analgesik • Antiseptik</span>
+                        <a href="detail.php?id=7" style="display: block; text-align: center; background: #2e7d32; color: white; text-decoration: none; padding: 8px; border-radius: 6px; font-weight: bold; margin-top: 12px; font-size: 0.85rem;">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <!-- 8. Ginkgo Biloba -->
+                <div class="plant-card" data-nama="Ginkgo Biloba Daun Ginkgo Ginkgo biloba L. Sirkulasi Otak Pikun Batuk Asma" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <img src="images/ginkgo.jpg" alt="Ginkgo Biloba" style="width: 100%; aspect-ratio: 1/1; object-fit: contain; border-radius: 6px; background: #fafafa;">
+                    <div class="plant-card-body" style="margin-top: 10px;">
+                        <h4 style="margin: 0; color: #1b5e20;">Ginkgo Biloba</h4>
+                        <p style="margin: 2px 0 10px 0; font-style: italic; color: #666; font-size: 0.85rem;">Ginkgo biloba L.</p>
+                        <span style="background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; font-weight: bold;">Sirkulasi Darah • Otak</span>
+                        <a href="detail.php?id=8" style="display: block; text-align: center; background: #2e7d32; color: white; text-decoration: none; padding: 8px; border-radius: 6px; font-weight: bold; margin-top: 12px; font-size: 0.85rem;">Lihat Detail</a>
+                    </div>
                 </div>
 
             </div>
-        </section>
-    </main>
 
-    <!-- KOLOM KANAN: SIDEBAR -->
-    <aside class="sidebar-column">
-        <div class="sidebar-widget widget-consultation">
-            <h4>🩺 KONSULTASI MEDIS</h4>
-            <p style="font-size: 0.85rem; color: #555;">Bingung memilih produk herbal atau punya pertanyaan aturan pakai obat?</p>
-            <div class="consult-buttons">
-                <a href="konsultasi.php" class="btn-consult apoteker">💊 Tanya Apoteker</a>
-                <a href="konsultasi.php" class="btn-consult dokter">👨‍⚕️ Tanya Dokter</a>
+            <!-- Pesan Jika Hasil Kosong -->
+            <div id="emptyNotice" style="display: none; padding: 20px; text-align: center; background: #ffebee; border-radius: 8px; margin-top: 20px;">
+                <p style="margin: 0; color: #c62828; font-weight: bold;">❌ Tanaman tidak terdeteksi atau tidak ditemukan. Silakan coba kata kunci lain.</p>
+            </div>
+        </section>
+
+        <!-- BANNER KONSULTASI MEDIS MENONJOL -->
+        <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 2px solid #2e7d32; border-radius: 12px; padding: 25px; margin: 35px 0 20px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+            <div style="flex: 1; min-width: 280px;">
+                <span style="background: #e65100; color: white; font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;">
+                    💳 Konsultasi Berbayar
+                </span>
+                <h3 style="color: #1b5e20; margin: 10px 0 5px 0; font-size: 1.3rem;">Butuh Bantuan Konsultasi Medis & Herbal?</h3>
+                <p style="color: #444; margin: 0; font-size: 0.95rem; line-height: 1.5;">
+                    Bingung memilih produk herbal yang cocok atau punya pertanyaan seputar aturan pakai dan interaksi obat? Tim medis kami siap membantu!
+                </p>
+            </div>
+
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+                <a href="https://wa.me/62895326133068?text=Halo%20Apoteker,%20saya%20ingin%20konsultasi%20mengenai%20penggunaan%20obat%20herbal." target="_blank" style="background-color: #25d366; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+                    💊 Tanya Apoteker
+                </a>
+                <a href="https://wa.me/62895326133068?text=Halo%20Dokter,%20saya%20ingin%20konsultasi%20kesehatan%20dan%20herbal." target="_blank" style="background-color: #0288d1; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+                    👨‍⚕️ Tanya Dokter
+                </a>
             </div>
         </div>
 
-        <div class="sidebar-widget">
-            <h4>🛒 PRODUK PILIHAN</h4>
-            <ul class="trending-list">
-                <li><a href="#">🌿 Kapsul Ekstrak Herbal</a></li>
-                <li><a href="#">🍵 Minuman & Teh Herbal</a></li>
-                <li><a href="#">🍯 Madu Murni Organic</a></li>
-                <li><a href="#">🧴 Minyak Atsiri & Aromaterapi</a></li>
-            </ul>
+    </div>
+</main>
+
+<!-- MODAL KAMERA DETEKSI -->
+<div id="cameraModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
+    <div style="background: white; padding: 20px; border-radius: 10px; max-width: 400px; width: 90%; text-align: center; position: relative;">
+        <h3 style="margin-top: 0; color: #1b5e20;">📷 Deteksi Kamera Visual</h3>
+        <video id="webcam" autoplay playsinline style="width: 100%; border-radius: 8px; background: #000;"></video>
+        <p id="scanStatus" style="font-size: 0.85rem; color: #666; margin: 10px 0;">Arahkan kamera ke daun atau rimpang tanaman herbal.</p>
+        <div id="scanLine" style="display: none; height: 3px; background: #2e7d32; width: 100%; margin-bottom: 10px;"></div>
+        
+        <div style="display: flex; gap: 10px; justify-content: center;">
+            <button id="btnDetect" onclick="captureAndScan()" style="background: #2e7d32; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold;">🔍 Pindai Gambar</button>
+            <button onclick="closeCameraModal()" style="background: #d32f2f; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold;">Batal</button>
         </div>
-    </aside>
+    </div>
 </div>
 
-<!-- JAVASCRIPT UNTUK SCAN OTOMATIS & FILTERING -->
 <script>
-const searchInput = document.getElementById('searchInput');
-const filterKhasiat = document.getElementById('filterKhasiat');
-const filterPenyakit = document.getElementById('filterPenyakit');
-const filterSediaan = document.getElementById('filterSediaan');
-const plantGrid = document.getElementById('plantGrid');
-const emptyNotice = document.getElementById('emptyNotice');
-const plantCards = document.querySelectorAll('.plant-card');
-
 let videoStream = null;
 
 function openCameraModal() {
@@ -239,70 +198,61 @@ function openCameraModal() {
 
 function closeCameraModal() {
     const cameraModal = document.getElementById('cameraModal');
-    const scanLine = document.getElementById('scanLine');
-    const scanStatus = document.getElementById('scanStatus');
-    const btnDetect = document.getElementById('btnDetect');
-
     if (videoStream) {
         videoStream.getTracks().forEach(track => track.stop());
     }
-    
-    scanLine.style.display = 'none';
-    scanStatus.innerText = 'Arahkan kamera ke daun atau rimpang tanaman herbal.';
-    btnDetect.disabled = false;
-    btnDetect.innerText = '🔍 Deteksi Tanaman';
-    cameraModal.style.display = 'none';
+    if (cameraModal) cameraModal.style.display = 'none';
 }
 
-// PROSES DETEKSI OTOMATIS
 function captureAndScan() {
     const scanLine = document.getElementById('scanLine');
     const scanStatus = document.getElementById('scanStatus');
     const btnDetect = document.getElementById('btnDetect');
 
-    // Aktifkan Efek Animasi Scan
-    scanLine.style.display = 'block';
-    scanStatus.innerText = '⏳ Memindai gambar visual tanaman...';
-    btnDetect.disabled = true;
-    btnDetect.innerText = 'Memproses...';
+    if (scanLine) scanLine.style.display = 'block';
+    if (scanStatus) scanStatus.innerText = '⏳ Memindai gambar visual tanaman...';
+    if (btnDetect) {
+        btnDetect.disabled = true;
+        btnDetect.innerText = 'Memproses...';
+    }
 
-    // Simulasi waktu proses analisis gambar (1.5 detik)
     setTimeout(() => {
-        // Ambil sampel tanaman acak untuk hasil deteksi visual
-        const daftarTanaman = ['Sambiloto', 'Kunyit', 'Jahe', 'Temulawak', 'Pegagan'];
+        const daftarTanaman = ['Sambiloto', 'Kunyit', 'Jahe', 'Temulawak', 'Pegagan', 'Asam Jawa', 'Selasih', 'Ginkgo Biloba'];
         const hasilOtomatis = daftarTanaman[Math.floor(Math.random() * daftarTanaman.length)];
 
         closeCameraModal();
 
-        // Masukkan hasil ke search box & filter galeri
-        searchInput.value = hasilOtomatis;
-        filterPlants();
-
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.value = hasilOtomatis;
+            filterPlants();
+        }
     }, 1500);
 }
 
 function filterPlants() {
-    const query = searchInput.value.toLowerCase().trim();
-    const khasiat = filterKhasiat.value.toLowerCase();
-    const penyakit = filterPenyakit.value.toLowerCase();
-    const sediaan = filterSediaan.value.toLowerCase();
+    const searchInput = document.getElementById('searchInput');
+    const filterKhasiat = document.getElementById('filterKhasiat');
+    const filterPenyakit = document.getElementById('filterPenyakit');
+    const plantGrid = document.getElementById('plantGrid');
+    const emptyNotice = document.getElementById('emptyNotice');
+    const plantCards = document.querySelectorAll('.plant-card');
 
-    if (query === '' && khasiat === '' && penyakit === '' && sediaan === '') {
-        plantGrid.style.display = 'none';
-        emptyNotice.style.display = 'block';
-        return;
-    }
+    if (!searchInput || !plantGrid || !emptyNotice) return;
+
+    const query = searchInput.value.toLowerCase().trim();
+    const khasiat = filterKhasiat ? filterKhasiat.value.toLowerCase() : '';
+    const penyakit = filterPenyakit ? filterPenyakit.value.toLowerCase() : '';
 
     let matchCount = 0;
     plantCards.forEach(card => {
-        const dataNama = card.getAttribute('data-nama').toLowerCase();
+        const dataNama = card.getAttribute('data-nama') ? card.getAttribute('data-nama').toLowerCase() : '';
         
         const matchQuery = query === '' || dataNama.includes(query);
         const matchKhasiat = khasiat === '' || dataNama.includes(khasiat);
         const matchPenyakit = penyakit === '' || dataNama.includes(penyakit);
-        const matchSediaan = sediaan === '' || dataNama.includes(sediaan);
 
-        if (matchQuery && matchKhasiat && matchPenyakit && matchSediaan) {
+        if (matchQuery && matchKhasiat && matchPenyakit) {
             card.style.display = 'flex';
             matchCount++;
         } else {
@@ -316,19 +266,19 @@ function filterPlants() {
     } else {
         plantGrid.style.display = 'none';
         emptyNotice.style.display = 'block';
-        emptyNotice.innerHTML = '<p style="font-size: 1rem; margin: 0; color: #d32f2f;">❌ Tanaman tidak terdeteksi. Silakan coba lagi.</p>';
     }
 }
 
-function searchTag(keyword) {
-    searchInput.value = keyword;
-    filterPlants();
-}
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById('searchInput');
+    const filterKhasiat = document.getElementById('filterKhasiat');
+    const filterPenyakit = document.getElementById('filterPenyakit');
 
-searchInput.addEventListener('input', filterPlants);
-filterKhasiat.addEventListener('change', filterPlants);
-filterPenyakit.addEventListener('change', filterPlants);
-filterSediaan.addEventListener('change', filterPlants);
+    if (searchInput) searchInput.addEventListener('input', filterPlants);
+    if (filterKhasiat) filterKhasiat.addEventListener('change', filterPlants);
+    if (filterPenyakit) filterPenyakit.addEventListener('change', filterPlants);
+});
 </script>
 
 <?php include 'footer.php'; ?>
+
