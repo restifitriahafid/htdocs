@@ -162,7 +162,32 @@ $plants = [
         'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
         'nama_produk'    => 'Daun Bandotan Kering / Simplisia',
         'link_affiliate' => 'https://shopee.co.id/'
-    ]
+    ]11 => [
+        'nama_lokal' => 'Adas',
+        'nama_latin' => 'Foeniculum vulgare Mill.',
+        'gambar' => 'images/adas.jpg',
+        'kandungan' => 'Minyak atsiri, fenkon, pinen, limonen, dipanten, felandren, anisaldehid, dan asam anisat.',
+        'manfaat' => 'Sakit perut (mulas), perut kembung, mual, muntah, ASI sedikit, diare, sakit kuning (jaundice), kurang nafsu makan, batuk, sesak napas (asma), nyeri haid, haid tidak teratur, rematik gout, susah tidur (insomnia), buah pelir turun (orchidoptosis), kolik, usus turun ke lipat paha (hernia inguinalis), batu empedu, pembengkakan saluran sperma (epididimis), penimbunan cairan dalam kantung buah zakar (hidrokel testis), keracunan tumbuhan/jamur, serta meningkatkan penglihatan.',
+        'bagian_digunakan' => 'Daun dan buah.',
+        'cara_pemanfaatan' => [
+            'Batuk (Cara 1): Seduh 5 g serbuk adas dengan ½ cangkir air mendidih, saring, lalu tambah 1 sdt madu. Minum 2 kali sehari.',
+            'Batuk (Cara 2): Rebus daun saga (¼ genggam), kembang sepatu (2 kuntum), daun poko (1/5 genggam), tembelekan (10 kuntum), bawang merah (2 butir), adas (1 sdt), pulosari (1 jari), jahe (1 jari), dan gula merah (3 jari) dengan 3 gelas air hingga tersisa setengah. Saring, minum 3 kali sehari (½ gelas).',
+            'Batu Empedu: Seduh 5 g serbuk adas dengan 1 cangkir air panas. Minum tiap hari setelah dingin.',
+            'Haid Tidak Teratur: Rebus srigading (1/5 genggam), jinten hitam (¾ sdt), adas (½ sdt), pulosari (½ jari), kesumba keling (2 kuntum), jeruk nipis (2 buah), dan gula batu dengan 3 gelas air hingga tersisa 2¼ gelas. Saring, minum 3 kali sehari (¾ gelas).',
+            'Keracunan Tumbuhan/Jamur: Seduh 5 g serbuk adas dengan ½ cangkir arak. Minum selagi hangat.',
+            'Sariawan: Rebus adas (¾ sdt), ketumbar (¾ sdt), daun iler (1/5 genggam), daun saga (¼ genggam), sisik naga (1/5 genggam), sembung (¼ genggam), pegagan (¼ genggam), daun kentut (1/6 genggam), pulosari (¾ jari), lempuyang (½ jari), kunyit (½ jari), kayu manis (¾ jari), dan gula merah (3 jari) dengan 4½ gelas air hingga tersisa separuhnya. Saring, minum 3 kali sehari (¾ gelas).',
+            'Sesak Napas (Cara 1): Seduh 10 tetes minyak adas dengan 1 sdm air panas. Minum hangat 3 kali sehari.',
+            'Sesak Napas (Cara 2): Rebus adas (½ sdt), pulosari (¼ jari), kencur (2 jari), temulawak (1 jari), jintan hitam (¼ sdt), daun poncosudo (¼ genggam), dan gula merah (3 jari) dengan 4½ gelas air hingga tersisa separuhnya. Saring, minum 3 kali sehari (¾ gelas).'
+        ],
+        'keamanan' => 'Ibu hamil sebaiknya menghindari adas dalam dosis obat atau minyak pekat karena efek menyerupai estrogen (estrogenic effect) dapat merangsang kontraksi rahim.',
+        'interaksi_obat' => '1. Obat Hormonal & Pil KB: Adas mengandung fitoestrogen yang dapat mengganggu kerja pil KB dan terapi hormon.
+2. Obat Antihipertensi: Bersifat diuretik dan melebarkan pembuluh darah. Penggunaan bersamaan dapat memicu tekanan darah drop (hipotensi).
+3. Obat Antidiabetes: Adas menurunkan gula darah, kombinasi dengan obat diabetes berisiko memicu hipoglikemia.',
+        'referensi' => [
+            'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
+            'Albert-Puleo, M. (1980). Fennel and anise as estrogenic agents. Journal of Ethnopharmacology, 2(4), 337-344.'
+        ]
+    ],
 ];
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 1;

@@ -276,10 +276,26 @@
                     </div>
                 </div>
 
+                    <!-- ID 11: Adas -->
+                    <div class="plant-card" data-nama="adas foeniculum vulgare mill. sakit perut mulas kembung mual batuk sesak napas haid serbuk minyak rebusan">
+                        <img src="images/adas.jpg" alt="Adas" class="plant-img">
+                        <div style="padding: 12px; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
+                            <div>
+                                <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Adas</h5>
+                                <p style="margin: 0 0 6px 0; color: #666; font-size: 0.85rem; font-style: italic;">Foeniculum vulgare Mill.</p>
+                                <span style="font-size: 0.7rem; color: #fff; background: #2e7d32; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">Daun • Buah</span>
+                            </div>
+                            <a href="detail.php?id=11" style="background: #1b5e20; color: white; text-align: center; padding: 6px; border-radius: 4px; text-decoration: none; font-size: 0.85rem; font-weight: 500; display: block;">Lihat Detail</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
             </div>
         </section>
     </div>
-
+<
     <!-- KOLOM KANAN (25%): LAYANAN KONSULTASI VERSI KECIL -->
     <div class="right-sidebar-25">
         <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 1px solid #a5d6a7; border-top: 5px solid #2e7d32; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03);">
