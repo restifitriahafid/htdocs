@@ -1,7 +1,7 @@
- <?php 
+<?php 
 include 'header.php'; 
 
-// Data Detail Tanaman (IDs 1 s.d 11)
+// Data Detail Tanaman (IDs 1 s.d 10)
 $plants = [
     1 => [
         'nama_lokal'     => 'Kunyit',
@@ -148,7 +148,7 @@ $plants = [
         'link_affiliate' => 'https://shopee.co.id/'
     ],
     10 => [
-        'nama_lokal'     => 'Bendotan',
+        'nama_lokal'     => 'Bandotan (Bendotan)',
         'nama_latin'     => 'Ageratum conyzoides L.',
         'gambar'         => 'images/bandotan.jpg',
         'deskripsi'      => 'Bandotan adalah tumbuhan gulma berkhasiat obat yang sering digunakan masyarakat untuk pertolongan pertama pada luka luar, sariawan, dan demam.',
@@ -162,22 +162,6 @@ $plants = [
         'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
         'nama_produk'    => 'Daun Bandotan Kering / Simplisia',
         'link_affiliate' => 'https://shopee.co.id/'
-    ],
-    11 => [
-        'nama_lokal'     => 'Sambiloto',
-        'nama_latin'     => 'Andrographis paniculata',
-        'gambar'         => 'images/sambiloto.jpg',
-        'deskripsi'      => 'Varian alternatif Sambiloto yang difokuskan khusus untuk penanganan demam, influenza, dan infeksi saluran pernapasan atas.',
-        'kandungan'      => 'Andrografolida, Flavonoid total, Senyawa pahit lakton.',
-        'khasiat'        => 'Menurunkan demam tinggi, meredakan gejala selesma/flu, mengatasi infeksi bakteri ringan, dan stimulan imun.',
-        'bagian_dipakai' => 'Bagian atas tanaman (daun dan ranting kering)',
-        'sediaan'        => 'Ekstrak cair, Kapsul herbal terstandar.',
-        'aturan_pakai'   => 'Konsumsi kapsul ekstrak 3 kali sehari sesudah makan selama gejala flu atau demam masih terasa.',
-        'keamanan'       => 'Tidak dianjurkan untuk ibu hamil karena memiliki efek kontraksi uterus ringan.',
-        'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
-        'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
-        'nama_produk'    => 'Kapsul Ekstrak Sambiloto Standar',
-        'link_affiliate' => 'https://s.shopee.co.id/2LYTVztxmu?share_channel_code=1'
     ]
 ];
 
@@ -230,15 +214,20 @@ $plant = isset($plants[$id]) ? $plants[$id] : $plants[1];
                 </a>
             </div>
 
-            <!-- KONSULTASI APOTEKER VIA WHATSAPP -->
+            <!-- KONSULTASI APOTEKER & DOKTER VIA WHATSAPP -->
             <div style="margin-top: 20px; background: #e8f5e9; padding: 15px; border-radius: 6px; border-left: 4px solid #2e7d32; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
                 <div>
                     <strong style="color: #1b5e20;">💊 Butuh penyesuaian dosis <?php echo $plant['nama_lokal']; ?>?</strong>
-                    <p style="margin: 3px 0 0 0; font-size: 0.85rem; color: #555;">Konsultasikan penggunaan herbal ini dengan Apoteker kami secara gratis.</p>
+                    <p style="margin: 3px 0 0 0; font-size: 0.85rem; color: #555;">Konsultasikan langsung dengan Dokter atau Apoteker kami.</p>
                 </div>
-                <a href="https://wa.me/62895326133068?text=Halo%20Apoteker,%20saya%20mau%20tanya%20dosis%20penggunaan%20<?php echo urlencode($plant['nama_lokal']); ?>" target="_blank" style="background-color: #25d366; color: white; padding: 8px 14px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.85rem;">
-                    💬 Hubungi Apoteker (WA)
-                </a>
+                <div style="display: flex; gap: 8px;">
+                    <a href="https://wa.me/62895326133068?text=Halo%20Apoteker,%20saya%20mau%20tanya%20dosis%20penggunaan%20<?php echo urlencode($plant['nama_lokal']); ?>" target="_blank" style="background-color: #25d366; color: white; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem;">
+                        💬 Tanya Apoteker
+                    </a>
+                    <a href="https://wa.me/62895326133068?text=Halo%20Dokter,%20saya%20mau%20tanya%20terkait%20terapi%20<?php echo urlencode($plant['nama_lokal']); ?>" target="_blank" style="background-color: #0288d1; color: white; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem;">
+                        🩺 Tanya Dokter
+                    </a>
+                </div>
             </div>
 
         </div>

@@ -1,32 +1,10 @@
 <?php include 'header.php'; ?>
 
-<!-- HERO & SEARCH SECTION WITH CAMERA SCAN -->
-<section class="hero-search-section">
+<!-- HERO SECTION -->
+<section class="hero-search-section" style="padding: 25px 0; background: #f4fbf7; border-bottom: 1px solid #e0e0e0;">
     <div class="container text-center">
-        <h2>Kenali Tanaman Herbal untuk Pilihan yang Lebih Bijak</h2>
-        <p class="subtitle">Temukan informasi tanaman herbal, manfaat, kandungan, bentuk sediaan, serta rekomendasi penggunaan.</p>
-        
-        <div class="search-box-wrapper" style="position: relative;">
-            <form action="index.php" method="GET" class="main-search-form" onsubmit="return false;" style="display: flex; gap: 8px; align-items: center;">
-                <input type="text" id="searchInput" class="search-input" placeholder="🔍 Cari nama tanaman, nama latin, khasiat, atau sediaan..." style="flex: 1;">
-                
-                <!-- TOMBOL SCAN KAMERA -->
-                <button type="button" onclick="openCameraModal()" style="background-color: #2e7d32; color: white; border: none; padding: 10px 16px; border-radius: 20px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 5px; white-space: nowrap;">
-                    📷 Scan
-                </button>
-            </form>
-
-            <div class="popular-searches">
-                <span>Pencarian populer:</span>
-                <a href="#" class="popular-tag" onclick="searchTag('Jahe')">Jahe</a>
-                <a href="#" class="popular-tag" onclick="searchTag('Kunyit')">Kunyit</a>
-                <a href="#" class="popular-tag" onclick="searchTag('Temulawak')">Temulawak</a>
-                <a href="#" class="popular-tag" onclick="searchTag('Pegagan')">Pegagan</a>
-                <a href="#" class="popular-tag" onclick="searchTag('Sambiloto')">Sambiloto</a>
-                <a href="#" class="popular-tag" onclick="searchTag('Anting-Anting')">Anting-Anting</a>
-                <a href="#" class="popular-tag" onclick="searchTag('Bandotan')">Bandotan</a>
-            </div>
-        </div>
+        <h2 style="color: #1b5e20; margin-bottom: 5px; font-size: 1.8rem;">Kenali Tanaman Herbal untuk Pilihan yang Lebih Bijak</h2>
+        <p class="subtitle" style="color: #555; margin: 0;">Temukan informasi tanaman herbal, manfaat, kandungan, bentuk sediaan, serta rekomendasi penggunaan.</p>
     </div>
 </section>
 
@@ -36,10 +14,8 @@
         <h3 style="margin-top: 0; color: #1b5e20;">📷 Scan Tanaman Herbal</h3>
         <p id="scanStatus" style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Arahkan kamera ke daun atau rimpang tanaman herbal.</p>
         
-        <!-- ELEMENT VIDEO KAMERA -->
         <div style="position: relative; overflow: hidden; border-radius: 8px;">
             <video id="webcam" autoplay playsinline style="width: 100%; height: 250px; object-fit: cover; background: #000; display: block;"></video>
-            <!-- ANIMASI GARIS SCANNER -->
             <div id="scanLine" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: #2e7d32; box-shadow: 0 0 10px #2e7d32; animation: scanAnim 1.5s infinite linear;"></div>
         </div>
 
@@ -60,40 +36,78 @@
     50% { top: 95%; }
     100% { top: 0%; }
 }
+/* Layout Utama: Kiri 75%, Kanan 25% */
+.main-layout-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+.left-content-75 {
+    flex: 3;
+    min-width: 0;
+}
+.right-sidebar-25 {
+    flex: 1;
+    min-width: 260px;
+    position: sticky;
+    top: 20px;
+}
+@media (max-width: 900px) {
+    .main-layout-container {
+        flex-direction: column;
+    }
+    .right-sidebar-25 {
+        position: static;
+        width: 100%;
+    }
+}
 </style>
 
-<!-- LAYOUT 2 KOLOM -->
-<div class="container layout-wrapper" style="margin-top: 30px; margin-bottom: 40px;">
+<!-- MAIN LAYOUT (75% KIRI & 25% KANAN) -->
+<div class="main-layout-container">
 
-    <!-- BANNER KONSULTASI BERBAYAR -->
-    <div style="background-color: #e8f5e9; border-left: 5px solid #2e7d32; padding: 20px; border-radius: 8px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-        <div>
-            <h3 style="margin: 0; color: #1b5e20;">💬 Butuh Konsultasi Herbal Khusus?</h3>
-            <p style="margin: 5px 0 0 0; color: #444;">Konsultasikan kondisi kesehatan dan dosis ramuan herbal kamu langsung bersama Apoteker profesional kami.</p>
-        </div>
-        <a href="konsultasi.php" style="background-color: #2e7d32; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: bold;">Konsultasi Berbayar</a>
-    </div>
-
-    <!-- KOLOM KIRI: DIREKTORI & GALERI -->
-    <main class="main-column">
+    <!-- KOLOM KIRI (75%): SEARCH, FILTER, & GALERI TANAMAN -->
+    <div class="left-content-75">
         
+        <!-- SEARCH BAR BESAR -->
+        <div class="search-box-wrapper" style="margin-bottom: 20px;">
+            <form action="index.php" method="GET" class="main-search-form" onsubmit="return false;" style="display: flex; gap: 10px; align-items: center;">
+                <input type="text" id="searchInput" class="search-input" placeholder="🔍 Cari nama tanaman, nama latin, khasiat, atau sediaan..." style="flex: 1; padding: 12px 18px; font-size: 1rem; border: 2px solid #c8e6c9; border-radius: 30px; outline: none;">
+                
+                <button type="button" onclick="openCameraModal()" style="background-color: #2e7d32; color: white; border: none; padding: 12px 20px; border-radius: 30px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                    📷 Scan
+                </button>
+            </form>
+
+            <div class="popular-searches" style="margin-top: 8px; font-size: 0.85rem; color: #666;">
+                <span>Pencarian populer:</span>
+                <a href="#" class="popular-tag" onclick="searchTag('Jahe')" style="color: #2e7d32; text-decoration: none; margin-left: 5px; font-weight: 500;">Jahe</a> •
+                <a href="#" class="popular-tag" onclick="searchTag('Kunyit')" style="color: #2e7d32; text-decoration: none; margin-left: 3px; font-weight: 500;">Kunyit</a> •
+                <a href="#" class="popular-tag" onclick="searchTag('Temulawak')" style="color: #2e7d32; text-decoration: none; margin-left: 3px; font-weight: 500;">Temulawak</a> •
+                <a href="#" class="popular-tag" onclick="searchTag('Sambiloto')" style="color: #2e7d32; text-decoration: none; margin-left: 3px; font-weight: 500;">Sambiloto</a> •
+                <a href="#" class="popular-tag" onclick="searchTag('Anting-Anting')" style="color: #2e7d32; text-decoration: none; margin-left: 3px; font-weight: 500;">Anting-Anting</a>
+            </div>
+        </div>
+
         <!-- MULTI-FILTER DIREKTORI -->
-        <section class="filter-box" style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-            <h3 style="margin-top: 0; color: #1b5e20; font-size: 1.1rem;">📂 DIREKTORI TANAMAN HERBAL</h3>
+        <section class="filter-box" style="background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #e0e0e0; margin-bottom: 20px;">
+            <h4 style="margin-top: 0; color: #1b5e20; font-size: 1rem; margin-bottom: 10px;">📂 DIREKTORI TANAMAN HERBAL</h4>
             <div class="filter-grid" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                <select id="filterKhasiat" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; flex: 1; min-width: 150px;">
-                    <option value="">-- Semua Kategori Khasiat --</option>
+                <select id="filterKhasiat" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; flex: 1; min-width: 140px;">
+                    <option value="">-- Semua Khasiat --</option>
                     <option value="antioksidan">Antioksidan</option>
                     <option value="antiinflamasi">Antiinflamasi</option>
                     <option value="antibakteri">Antibakteri</option>
                     <option value="antidiabetes">Antidiabetes</option>
                     <option value="pencernaan">Pencernaan</option>
                     <option value="imunitas">Imunitas</option>
-                    <option value="pendarahan">Pendarahan & Luka</option>
                 </select>
 
-                <select id="filterPenyakit" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; flex: 1; min-width: 150px;">
-                    <option value="">-- Semua Kondisi Kesehatan --</option>
+                <select id="filterPenyakit" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; flex: 1; min-width: 140px;">
+                    <option value="">-- Semua Kondisi --</option>
                     <option value="batuk">Batuk / Asma</option>
                     <option value="demam">Demam / Flu</option>
                     <option value="diabetes">Diabetes</option>
@@ -101,183 +115,191 @@
                     <option value="mual">Mual & Lambung</option>
                 </select>
 
-                <select id="filterSediaan" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; flex: 1; min-width: 150px;">
-                    <option value="">-- Semua Bentuk Sediaan --</option>
+                <select id="filterSediaan" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; flex: 1; min-width: 140px;">
+                    <option value="">-- Semua Sediaan --</option>
                     <option value="ekstrak">Ekstrak</option>
                     <option value="kapsul">Kapsul</option>
-                    <option value="serbuk">Serbuk / Bubuk</option>
+                    <option value="serbuk">Serbuk</option>
                     <option value="simplisia">Simplisia</option>
-                    <option value="rebusan">Rebusan / Seduhan</option>
+                    <option value="rebusan">Rebusan</option>
                 </select>
             </div>
         </section>
 
-        <!-- INDEKS NAMA LATIN A-Z -->
+        <!-- INDEKS A-Z -->
         <section class="index-box" style="margin-bottom: 25px;">
-            <h4 style="margin-bottom: 10px; color: #1b5e20;">🔤 INDEKS BERDASARKAN NAMA LATIN</h4>
-            <div class="alphabet-list" style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <h5 style="margin-bottom: 8px; color: #1b5e20; font-size: 0.9rem;">🔤 INDEKS NAMA LATIN A-Z</h5>
+            <div class="alphabet-list" style="display: flex; gap: 4px; flex-wrap: wrap;">
                 <?php foreach(range('A', 'Z') as $char): ?>
-                    <a href="#" onclick="searchTag('<?php echo $char; ?>')" style="padding: 4px 8px; background: #eee; text-decoration: none; border-radius: 4px; color: #333; font-weight: bold; font-size: 0.85rem;"><?php echo $char; ?></a>
+                    <a href="#" onclick="searchTag('<?php echo $char; ?>')" style="padding: 3px 7px; background: #eee; text-decoration: none; border-radius: 3px; color: #333; font-weight: bold; font-size: 0.8rem;"><?php echo $char; ?></a>
                 <?php endforeach; ?>
             </div>
         </section>
 
         <!-- GALERI TANAMAN HERBAL -->
         <section class="gallery-section">
-            <h4 style="color: #1b5e20; margin-bottom: 15px;">🌿 HASIL PENCARIAN TANAMAN HERBAL</h4>
+            <h4 style="color: #1b5e20; margin-bottom: 15px; font-size: 1.1rem;">🌿 HASIL PENCARIAN & KATALOG TANAMAN</h4>
             
             <div id="emptyNotice" style="text-align: center; padding: 40px 20px; color: #666; background: #fafafa; border: 1px dashed #ccc; border-radius: 6px;">
-                <p style="font-size: 1rem; margin: 0;">🔍 <strong>Ketik nama tanaman, pilih filter, atau klik Scan Kamera</strong> untuk melihat informasi tanaman herbal.</p>
+                <p style="font-size: 0.95rem; margin: 0;">🔍 <strong>Ketik nama tanaman di atas, gunakan filter, atau klik Scan Kamera</strong> untuk menampilkan daftar tanaman.</p>
             </div>
 
-            <div class="plant-grid" id="plantGrid" style="display: none; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+            <div class="plant-grid" id="plantGrid" style="display: none; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px;">
                 
                 <!-- ID 1: Kunyit -->
                 <div class="plant-card" data-nama="kunyit curcuma longa antioksidan antiinflamasi pencernaan lambung simplisia serbuk ekstrak c" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                    <img src="images/kunyit.jpg" alt="Kunyit" class="plant-img" style="width: 100%; height: 180px; object-fit: cover;">
-                    <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
+                    <img src="images/kunyit.jpg" alt="Kunyit" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 12px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
                         <div>
-                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1.1rem; font-weight: bold;">Kunyit</h5>
-                            <p style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Curcuma longa</p>
-                            <span style="font-size: 0.75rem; background: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 4px;">Antioksidan • Pencernaan</span>
+                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Kunyit</h5>
+                            <p style="margin: 0 0 6px 0; color: #666; font-size: 0.8rem; font-style: italic;">Curcuma longa</p>
+                            <span style="font-size: 0.7rem; background: #e8f5e9; color: #1b5e20; padding: 2px 5px; border-radius: 3px;">Antioksidan • Pencernaan</span>
                         </div>
-                        <a href="detail.php?id=1" style="background-color: #2e7d32; color: white; text-align: center; padding: 8px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.85rem; margin-top: 10px;">Lihat Detail</a>
+                        <a href="detail.php?id=1" style="background-color: #2e7d32; color: white; text-align: center; padding: 7px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-top: 8px;">Lihat Detail</a>
                     </div>
                 </div>
 
                 <!-- ID 2: Temulawak -->
                 <div class="plant-card" data-nama="temulawak curcuma zanthorrhiza kesehatan hati hepatoprotektor nafsu makan imunitas kapsul sirup serbuk c" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                    <img src="images/temulawak.jpg" alt="Temulawak" class="plant-img" style="width: 100%; height: 180px; object-fit: cover;">
-                    <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
+                    <img src="images/temulawak.jpg" alt="Temulawak" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 12px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
                         <div>
-                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1.1rem; font-weight: bold;">Temulawak</h5>
-                            <p style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Curcuma zanthorrhiza</p>
-                            <span style="font-size: 0.75rem; background: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 4px;">Kesehatan Hati • Imunitas</span>
+                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Temulawak</h5>
+                            <p style="margin: 0 0 6px 0; color: #666; font-size: 0.8rem; font-style: italic;">Curcuma zanthorrhiza</p>
+                            <span style="font-size: 0.7rem; background: #e8f5e9; color: #1b5e20; padding: 2px 5px; border-radius: 3px;">Kesehatan Hati • Imunitas</span>
                         </div>
-                        <a href="detail.php?id=2" style="background-color: #2e7d32; color: white; text-align: center; padding: 8px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.85rem; margin-top: 10px;">Lihat Detail</a>
+                        <a href="detail.php?id=2" style="background-color: #2e7d32; color: white; text-align: center; padding: 7px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-top: 8px;">Lihat Detail</a>
                     </div>
                 </div>
 
                 <!-- ID 3: Jahe -->
                 <div class="plant-card" data-nama="jahe zingiber officinale mual masuk angin batuk hangat serbuk ekstrak teh z" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                    <img src="images/jahe.jpg" alt="Jahe" class="plant-img" style="width: 100%; height: 180px; object-fit: cover;">
-                    <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
+                    <img src="images/jahe.jpg" alt="Jahe" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 12px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
                         <div>
-                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1.1rem; font-weight: bold;">Jahe</h5>
-                            <p style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Zingiber officinale</p>
-                            <span style="font-size: 0.75rem; background: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 4px;">Mual • Penghangat Badan</span>
+                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Jahe</h5>
+                            <p style="margin: 0 0 6px 0; color: #666; font-size: 0.8rem; font-style: italic;">Zingiber officinale</p>
+                            <span style="font-size: 0.7rem; background: #e8f5e9; color: #1b5e20; padding: 2px 5px; border-radius: 3px;">Mual • Penghangat Badan</span>
                         </div>
-                        <a href="detail.php?id=3" style="background-color: #2e7d32; color: white; text-align: center; padding: 8px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.85rem; margin-top: 10px;">Lihat Detail</a>
+                        <a href="detail.php?id=3" style="background-color: #2e7d32; color: white; text-align: center; padding: 7px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-top: 8px;">Lihat Detail</a>
                     </div>
                 </div>
 
                 <!-- ID 4: Sambiloto -->
                 <div class="plant-card" data-nama="sambiloto andrographis paniculata antidiabetes gula darah imunitas demam flu kapsul ekstrak a" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                    <img src="images/sambiloto.jpg" alt="Sambiloto" class="plant-img" style="width: 100%; height: 180px; object-fit: cover;">
-                    <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
+                    <img src="images/sambiloto.jpg" alt="Sambiloto" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 12px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
                         <div>
-                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1.1rem; font-weight: bold;">Sambiloto</h5>
-                            <p style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Andrographis paniculata</p>
-                            <span style="font-size: 0.75rem; background: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 4px;">Antidiabetes • Imunitas</span>
+                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Sambiloto</h5>
+                            <p style="margin: 0 0 6px 0; color: #666; font-size: 0.8rem; font-style: italic;">Andrographis paniculata</p>
+                            <span style="font-size: 0.7rem; background: #e8f5e9; color: #1b5e20; padding: 2px 5px; border-radius: 3px;">Antidiabetes • Imunitas</span>
                         </div>
-                        <a href="detail.php?id=4" style="background-color: #2e7d32; color: white; text-align: center; padding: 8px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.85rem; margin-top: 10px;">Lihat Detail</a>
+                        <a href="detail.php?id=4" style="background-color: #2e7d32; color: white; text-align: center; padding: 7px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-top: 8px;">Lihat Detail</a>
                     </div>
                 </div>
 
                 <!-- ID 5: Pegagan -->
                 <div class="plant-card" data-nama="pegagan centella asiatica daya ingat saraf kognitif luka antioksidan teh kapsul c" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                    <img src="images/pegagan.jpg" alt="Pegagan" class="plant-img" style="width: 100%; height: 180px; object-fit: cover;">
-                    <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
+                    <img src="images/pegagan.jpg" alt="Pegagan" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 12px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
                         <div>
-                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1.1rem; font-weight: bold;">Pegagan</h5>
-                            <p style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Centella asiatica</p>
-                            <span style="font-size: 0.75rem; background: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 4px;">Saraf & Kognitif • Daya Ingat</span>
+                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Pegagan</h5>
+                            <p style="margin: 0 0 6px 0; color: #666; font-size: 0.8rem; font-style: italic;">Centella asiatica</p>
+                            <span style="font-size: 0.7rem; background: #e8f5e9; color: #1b5e20; padding: 2px 5px; border-radius: 3px;">Saraf & Kognitif</span>
                         </div>
-                        <a href="detail.php?id=5" style="background-color: #2e7d32; color: white; text-align: center; padding: 8px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.85rem; margin-top: 10px;">Lihat Detail</a>
+                        <a href="detail.php?id=5" style="background-color: #2e7d32; color: white; text-align: center; padding: 7px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-top: 8px;">Lihat Detail</a>
                     </div>
                 </div>
 
                 <!-- ID 6: Asam Jawa -->
                 <div class="plant-card" data-nama="asam jawa tamarindus indica asma batuk demam reumatik sariawan g" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                    <img src="images/asam_jawa.jpg" alt="Asam Jawa" class="plant-img" style="width: 100%; height: 180px; object-fit: cover;">
-                    <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
+                    <img src="images/asam_jawa.jpg" alt="Asam Jawa" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 12px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
                         <div>
-                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1.1rem; font-weight: bold;">Asam Jawa</h5>
-                            <p style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Tamarindus indica, Linn</p>
-                            <span style="font-size: 0.75rem; background: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 4px;">Asma • Batuk • Demam</span>
+                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Asam Jawa</h5>
+                            <p style="margin: 0 0 6px 0; color: #666; font-size: 0.8rem; font-style: italic;">Tamarindus indica, Linn</p>
+                            <span style="font-size: 0.7rem; background: #e8f5e9; color: #1b5e20; padding: 2px 5px; border-radius: 3px;">Asma • Batuk • Demam</span>
                         </div>
-                        <a href="detail.php?id=6" style="background-color: #2e7d32; color: white; text-align: center; padding: 8px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.85rem; margin-top: 10px;">Lihat Detail</a>
+                        <a href="detail.php?id=6" style="background-color: #2e7d32; color: white; text-align: center; padding: 7px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-top: 8px;">Lihat Detail</a>
                     </div>
                 </div>
 
                 <!-- ID 7: Selasih -->
                 <div class="plant-card" data-nama="selasih ocimum basilicum l. diuretik antiseptik antibakteri penenang teh o" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                    <img src="images/selasih.jpg" alt="Selasih" class="plant-img" style="width: 100%; height: 180px; object-fit: cover;">
-                    <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
+                    <img src="images/selasih.jpg" alt="Selasih" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 12px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
                         <div>
-                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1.1rem; font-weight: bold;">Selasih</h5>
-                            <p style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Ocimum basilicum L.</p>
-                            <span style="font-size: 0.75rem; background: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 4px;">Antiseptik • Diuretik</span>
+                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Selasih</h5>
+                            <p style="margin: 0 0 6px 0; color: #666; font-size: 0.8rem; font-style: italic;">Ocimum basilicum L.</p>
+                            <span style="font-size: 0.7rem; background: #e8f5e9; color: #1b5e20; padding: 2px 5px; border-radius: 3px;">Antiseptik • Diuretik</span>
                         </div>
-                        <a href="detail.php?id=7" style="background-color: #2e7d32; color: white; text-align: center; padding: 8px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.85rem; margin-top: 10px;">Lihat Detail</a>
+                        <a href="detail.php?id=7" style="background-color: #2e7d32; color: white; text-align: center; padding: 7px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-top: 8px;">Lihat Detail</a>
                     </div>
                 </div>
 
                 <!-- ID 8: Ginkgo Biloba -->
                 <div class="plant-card" data-nama="ginkgo biloba daun ginkgo peredaran darah otak pikun alzheimer kognitif kapsul g" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                    <img src="images/ginkgo.jpg" alt="Ginkgo Biloba" class="plant-img" style="width: 100%; height: 180px; object-fit: cover;">
-                    <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
+                    <img src="images/ginkgo.jpg" alt="Ginkgo Biloba" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 12px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
                         <div>
-                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1.1rem; font-weight: bold;">Ginkgo Biloba</h5>
-                            <p style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Ginkgo biloba L.</p>
-                            <span style="font-size: 0.75rem; background: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 4px;">Sirkulasi Otak • Pikun</span>
+                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Ginkgo Biloba</h5>
+                            <p style="margin: 0 0 6px 0; color: #666; font-size: 0.8rem; font-style: italic;">Ginkgo biloba L.</p>
+                            <span style="font-size: 0.7rem; background: #e8f5e9; color: #1b5e20; padding: 2px 5px; border-radius: 3px;">Sirkulasi Otak • Pikun</span>
                         </div>
-                        <a href="detail.php?id=8" style="background-color: #2e7d32; color: white; text-align: center; padding: 8px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.85rem; margin-top: 10px;">Lihat Detail</a>
+                        <a href="detail.php?id=8" style="background-color: #2e7d32; color: white; text-align: center; padding: 7px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-top: 8px;">Lihat Detail</a>
                     </div>
                 </div>
 
                 <!-- ID 9: Anting-Anting -->
                 <div class="plant-card" data-nama="anting-anting anting anting acalypha australis l. disentri diare batuk pendarahan luka rebusan" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                    <img src="images/anting_anting.jpg" alt="Anting-Anting" class="plant-img" style="width: 100%; height: 180px; object-fit: cover;">
-                    <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
+                    <img src="images/anting_anting.jpg" alt="Anting-Anting" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 12px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
                         <div>
-                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1.1rem; font-weight: bold;">Anting-Anting</h5>
-                            <p style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Acalypha australis L.</p>
-                            <span style="font-size: 0.75rem; background: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 4px;">Disentri • Pendarahan • Luka</span>
+                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Anting-Anting</h5>
+                            <p style="margin: 0 0 6px 0; color: #666; font-size: 0.8rem; font-style: italic;">Acalypha australis L.</p>
+                            <span style="font-size: 0.7rem; background: #e8f5e9; color: #1b5e20; padding: 2px 5px; border-radius: 3px;">Disentri • Pendarahan</span>
                         </div>
-                        <a href="detail.php?id=9" style="background-color: #2e7d32; color: white; text-align: center; padding: 8px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.85rem; margin-top: 10px;">Lihat Detail</a>
+                        <a href="detail.php?id=9" style="background-color: #2e7d32; color: white; text-align: center; padding: 7px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-top: 8px;">Lihat Detail</a>
                     </div>
                 </div>
 
                 <!-- ID 10: Bandotan / Bendotan -->
                 <div class="plant-card" data-nama="bandotan bendotan ageratum conyzoides l. luka sariawan demam bisul eksim rebusan" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                    <img src="images/bandotan.jpg" alt="Bandotan" class="plant-img" style="width: 100%; height: 180px; object-fit: cover;">
-                    <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
+                    <img src="images/bandotan.jpg" alt="Bandotan" style="width: 100%; height: 160px; object-fit: cover;">
+                    <div style="padding: 12px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
                         <div>
-                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1.1rem; font-weight: bold;">Bandotan (Bendotan)</h5>
-                            <p style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Ageratum conyzoides L.</p>
-                            <span style="font-size: 0.75rem; background: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 4px;">Luka • Sariawan • Demam</span>
+                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1rem; font-weight: bold;">Bandotan</h5>
+                            <p style="margin: 0 0 6px 0; color: #666; font-size: 0.8rem; font-style: italic;">Ageratum conyzoides L.</p>
+                            <span style="font-size: 0.7rem; background: #e8f5e9; color: #1b5e20; padding: 2px 5px; border-radius: 3px;">Luka • Sariawan • Demam</span>
                         </div>
-                        <a href="detail.php?id=10" style="background-color: #2e7d32; color: white; text-align: center; padding: 8px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.85rem; margin-top: 10px;">Lihat Detail</a>
-                    </div>
-                </div>
-
-                <!-- ID 11: Sambiloto (Alternatif / Varian Tambahan) -->
-                <div class="plant-card" data-nama="sambiloto andrographis paniculata raja pahit antidiabetes imunitas demam flu a" style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                    <img src="images/sambiloto.jpg" alt="Sambiloto" class="plant-img" style="width: 100%; height: 180px; object-fit: cover;">
-                    <div style="padding: 15px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
-                        <div>
-                            <h5 style="margin: 0 0 2px 0; color: #1b5e20; font-size: 1.1rem; font-weight: bold;">Sambiloto (Varian 2)</h5>
-                            <p style="margin: 0 0 8px 0; color: #666; font-size: 0.85rem; font-style: italic;">Andrographis paniculata</p>
-                            <span style="font-size: 0.75rem; background: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 4px;">Demam • Flu • Infeksi</span>
-                        </div>
-                        <a href="detail.php?id=11" style="background-color: #2e7d32; color: white; text-align: center; padding: 8px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.85rem; margin-top: 10px;">Lihat Detail</a>
+                        <a href="detail.php?id=10" style="background-color: #2e7d32; color: white; text-align: center; padding: 7px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-top: 8px;">Lihat Detail</a>
                     </div>
                 </div>
 
             </div>
         </section>
-    </main>
+    </div>
+
+    <!-- KOLOM KANAN (25%): LAYANAN KONSULTASI VERSI KECIL -->
+    <div class="right-sidebar-25">
+        <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 1px solid #a5d6a7; border-top: 5px solid #2e7d32; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03);">
+            <div style="display: inline-block; background-color: #2e7d32; color: white; padding: 3px 8px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; margin-bottom: 8px; text-transform: uppercase;">
+                ⭐ Layanan Berbayar
+            </div>
+            <h4 style="margin: 0 0 8px 0; color: #1b5e20; font-size: 1.1rem; font-weight: bold;">Konsultasi Medis & Herbal</h4>
+            <p style="margin: 0 0 15px 0; color: #444; font-size: 0.85rem; line-height: 1.4;">Bingung memilih produk herbal atau ingin tahu aturan pakai & interaksi obat? Konsultasikan langsung bersama ahli kami.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <a href="https://wa.me/62895326133068?text=Halo%20Apoteker,%20saya%20ingin%20konsultasi%20mengenai%20aturan%20pakai%20dan%20pemilihan%20tanaman%20herbal." target="_blank" style="background-color: #25d366; color: white; padding: 10px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 0.85rem; text-align: center; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    💬 Tanya Apoteker
+                </a>
+                <a href="https://wa.me/62895326133068?text=Halo%20Dokter,%20saya%20ingin%20konsultasi%20terkait%20kondisi%20kesehatan%20dan%20terapi%20herbal." target="_blank" style="background-color: #0288d1; color: white; padding: 10px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 0.85rem; text-align: center; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    🩺 Tanya Dokter
+                </a>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- JAVASCRIPT UNTUK SCAN OTOMATIS & FILTERING -->
@@ -381,7 +403,7 @@ function filterPlants() {
     } else {
         plantGrid.style.display = 'none';
         emptyNotice.style.display = 'block';
-        emptyNotice.innerHTML = '<p style="font-size: 1rem; margin: 0; color: #d32f2f;">❌ Tanaman tidak terdeteksi. Silakan coba lagi.</p>';
+        emptyNotice.innerHTML = '<p style="font-size: 0.95rem; margin: 0; color: #d32f2f;">❌ Tanaman tidak ditemukan.</p>';
     }
 }
 
