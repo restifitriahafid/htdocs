@@ -102,8 +102,8 @@ $plants = [
         'keamanan'       => 'Penggunaan asam jawa dalam jumlah berlebihan dapat menyebabkan gangguan pencernaan seperti mual, sakit perut, atau diare, reaksi alergi dapat terjadi pada individu yang sensitif terhadap bahan herbal tertentu.',
         'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
         'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
-        'nama_produk'    => 'Asam Jawa Daging Murni / Ekstrak Asam Jawa',
-        'link_affiliate' => 'https://s.shopee.co.id/W6pEFN9fY'
+        'nama_produk'    => 'Bubuk Asam Jawa',
+        'link_affiliate' => 'https://s.shopee.co.id/W6pEfN9fY'
     ],
     7 => [
         'nama_lokal'     => 'Selasih',
@@ -125,8 +125,8 @@ $plants = [
                             '• Obat antihipertensi → berpotensi memperkuat efek penurunan tekanan darah.',
         'referensi'      => 'Dalimartha S. Atlas tumbuhan obat Indonesia jilid 1. Jakarta: Trubus Agriwidya; 1999.',
         'link_referensi' => 'https://www.google.com/search?q=Dalimartha+S+Atlas+tumbuhan+obat+Indonesia+jilid+1',
-        'nama_produk'    => 'Biji Selasih Murni / Ekstrak Selasih',
-        'link_affiliate' => 'https://shopee.co.id/'
+        'nama_produk'    => 'Bubuk Selasih Murni',
+        'link_affiliate' => 'https://s.shopee.co.id/W6pLt5O9H'
     ],
     8 => [
         'nama_lokal'     => 'Ginkgo Biloba (Daun Ginkgo)',
@@ -143,8 +143,8 @@ $plants = [
         'keamanan'       => 'Konsumsi daun ginkgo dapat memicu mual, muntah, produksi air liur berlebih, nafsu makan berkurang, pusing, atau sakit kepala. Biji ginkgo mengandung sedikit racun (ginkgotoxin) dan ginkgolic acid yang dapat memicu reaksi alergi cukup kuat pada kulit jika terkena secara langsung.',
         'referensi'      => 'Ulbricht, C., et al. (2009). An evidence-based systematic review of ginkgo. Journal of Dietary Supplements.',
         'link_referensi' => 'https://www.google.com/search?q=An+evidence-based+systematic+review+of+ginkgo+Ulbricht',
-        'nama_produk'    => 'Ekstrak Ginkgo Biloba Kapsul Murni',
-        'link_affiliate' => 'https://shopee.co.id/'
+        'nama_produk'    => 'Bubuk Ekstrak Ginkgo',
+        'link_affiliate' => 'https://s.shopee.co.id/3VkQtlToAe'
     ]
 ];
 
