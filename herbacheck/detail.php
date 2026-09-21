@@ -1,7 +1,7 @@
  <?php 
 include 'header.php'; 
 
-// Data Detail Tanaman (IDs 1 s.d 8)
+// Data Detail Tanaman (IDs 1 s.d 11)
 $plants = [
     1 => [
         'nama_lokal'     => 'Kunyit',
@@ -92,59 +92,92 @@ $plants = [
         'khasiat'        => 'Dapat mengobati asma, batuk, demam, sakit panas, reumatik, sakit perut, morbili, alergi/biduren, sariawan, luka baru, luka borok, eksim, bisul, bengkak disengat lipan/lebah, gigitan ular berbisa, rambut rontok.',
         'bagian_dipakai' => 'Buah, daun, dan biji.',
         'sediaan'        => 'Seduhan, rebusan, penggunaan langsung.',
-        'aturan_pakai'   => '<b>Asma:</b> Rebus 2 potong kulit pohon asam jawa + adas pulowaras secukupnya dalam 1 liter air hingga mendidih, lalu saring (Minum 2x sehari).<br><br>' .
-                            '<b>Batuk Kering:</b> Rebus 3 polong buah asam jawa + 1/2 genggam daun saga dengan 4 gelas air hingga tersisa 1 gelas, lalu saring (Minum pagi dan sore).<br><br>' .
-                            '<b>Bengkak Disengat Lipan/Lebah:</b> Bersihkan bengkak dengan kain yang dibasahi minyak kayu putih, lalu taburi/tempeli dengan 3-5 biji asam jawa yang ditumbuk halus.<br><br>' .
-                            '<b>Biduren:</b> Rebus 2-3 polong buah asam jawa tua + 1/4 sendok kapur sirih + garam secukupnya dalam 3 gelas air hingga tersisa 2 gelas, lalu saring (Minum 2x sehari).<br><br>' .
-                            '<b>Demam (Ramuan Daun):</b> Rebus 1 genggam daun asam jawa + adas pulowaras secukupnya dalam 1/2 liter air hingga mendidih, lalu saring (Minum 2x sehari).<br><br>' .
-                            '<b>Demam (Ramuan Buah):</b> Seduh 2 polong buah asam jawa masak + garam secukupnya dengan 1 gelas air panas, lalu saring dan minum. <i>(Tidak boleh dikonsumsi oleh ibu hamil)</i>.<br><br>' .
-                            '<b>Gigitan Ular Berbisa:</b> Belah biji asam jawa secukupnya menjadi dua, lalu tempelkan bagian dalamnya pada luka bekas gigitan.',
-        'keamanan'       => 'Penggunaan asam jawa dalam jumlah berlebihan dapat menyebabkan gangguan pencernaan seperti mual, sakit perut, atau diare, reaksi alergi dapat terjadi pada individu yang sensitif terhadap bahan herbal tertentu.',
+        'aturan_pakai'   => '<b>Asma:</b> Rebus 2 potong kulit pohon asam jawa + adas pulowaras secukupnya dalam 1 liter air hingga mendidih, lalu saring (Minum 2x sehari).<br><br><b>Batuk Kering:</b> Rebus 3 polong buah asam jawa + 1/2 genggam daun saga dengan 4 gelas air hingga tersisa 1 gelas.',
+        'keamanan'       => 'Penggunaan asam jawa dalam jumlah berlebihan dapat menyebabkan gangguan pencernaan.',
         'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
         'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
-        'nama_produk'    => 'Bubuk Asam Jawa',
-        'link_affiliate' => 'https://s.shopee.co.id/W6pEfN9fY'
+        'nama_produk'    => 'Asam Jawa Daging Murni / Ekstrak Asam Jawa',
+        'link_affiliate' => 'https://s.shopee.co.id/W6pEFN9fY'
     ],
     7 => [
         'nama_lokal'     => 'Selasih',
         'nama_latin'     => 'Ocimum basilicum L.',
         'gambar'         => 'images/selasih.jpg',
         'deskripsi'      => 'Selasih merupakan tanaman herba aromatik dengan rasa pedas hangat dan biji yang bersifat sejuk. Digunakan secara luas untuk pengobatan tradisional dan campuran minuman herbal.',
-        'kandungan'      => 'Linalool, methylchavicol, ocimene, alpha-pinene, 1,8-cineole, eucalyptol, geraniol, limonene, Δ carene, eugenole, eugenol methyl ether, anethole, methyl cinnamate, 3-hexen-1-ol, 3-octanone, furfural, vitamin (A dan C), planteose, asam lemak (fatty acids) yaitu asam palmitat, asam oleat, asam stearat, dan asam linoleat.',
-        'khasiat'        => 'Meningkatkan penyerapan (absorpsi), peluruh keringat (diaforetik), peluruh urine (diuretik), peluruh kentut, peluruh hati, peluruh aliran darah, penghilang nyeri (analgesik), penenang ringan (sedatif ringan), antiseptik, antibakteri, pembasmi darah, dan menerangkan penglihatan.',
-        'bagian_dipakai' => 'Herba, biji. Biji dijemur dengan pelindung.',
-        'sediaan'        => 'Seduhan, rebusan, bubuk, obat tetes, penggunaan topikal/luar.',
-        'aturan_pakai'   => '<b>Diminum:</b> Rebus 10–15 g herba atau tumbuk dan peras airnya.<br><br>' .
-                            '<b>Rendaman Biji:</b> Rebus sebanyak 2,5–5 g atau rendam dalam air dan minum setelah mengembang.<br><br>' .
-                            '<b>Pemakaian Luar:</b> Giling atau bakar herba kering hingga menjadi bubuk. Bubuhkan pada tempat yang sakit (eksim, koreng, jerawat, bengkak terbentur, gigitan ular & serangga).<br><br>' .
-                            '<b>Mencuci Luka:</b> Rebus herba segar dan gunakan airnya untuk mencuci anggota tubuh yang sakit.<br><br>' .
-                            '<b>Obat Tetes/Bubuk Biji:</b> Giling biji sampai menjadi bubuk atau jadikan obat tetes.',
-        'keamanan'       => 'Umumnya aman dalam jumlah sebagai bahan pangan. Penggunaan dalam dosis tinggi, ekstrak pekat, atau minyak atsiri perlu hati-hati karena kandungan estragole. Ibu hamil dan menyusui sebaiknya menghindari penggunaan dalam dosis pengobatan karena data keamanannya masih terbatas. Reaksi alergi dapat terjadi pada individu yang sensitif.<br><br>' .
-                            '<b>Interaksi Obat:</b><br>' .
-                            '• Warfarin, aspirin, clopidogrel, heparin → berpotensi meningkatkan risiko perdarahan.<br>' .
-                            '• Obat antihipertensi → berpotensi memperkuat efek penurunan tekanan darah.',
+        'kandungan'      => 'Linalool, methylchavicol, ocimene, eugenole, vitamin (A dan C), asam lemak.',
+        'khasiat'        => 'Peluruh keringat (diaforetik), peluruh urine (diuretik), analgesik, penenang ringan, antiseptik, antibakteri.',
+        'bagian_dipakai' => 'Herba, biji.',
+        'sediaan'        => 'Seduhan, rebusan, bubuk.',
+        'aturan_pakai'   => 'Rebus 10–15 g herba atau rendam biji secukupnya dalam air hangat sebelum diminum.',
+        'keamanan'       => 'Umumnya aman. Hati-hati bagi ibu hamil dan yang mengonsumsi obat pengencer darah.',
         'referensi'      => 'Dalimartha S. Atlas tumbuhan obat Indonesia jilid 1. Jakarta: Trubus Agriwidya; 1999.',
         'link_referensi' => 'https://www.google.com/search?q=Dalimartha+S+Atlas+tumbuhan+obat+Indonesia+jilid+1',
-        'nama_produk'    => 'Bubuk Selasih Murni',
-        'link_affiliate' => 'https://s.shopee.co.id/W6pLt5O9H'
+        'nama_produk'    => 'Biji Selasih Murni / Ekstrak Selasih',
+        'link_affiliate' => 'https://shopee.co.id/'
     ],
     8 => [
-        'nama_lokal'     => 'Ginkgo Biloba (Daun Ginkgo)',
+        'nama_lokal'     => 'Ginkgo Biloba',
         'nama_latin'     => 'Ginkgo biloba L.',
         'gambar'         => 'images/ginkgo.jpg',
-        'deskripsi'      => 'Ginkgo biloba merupakan salah satu spesies pohon tertua di dunia. Daun dan bijinya kaya akan flavonoid dan terpenoid yang sangat baik untuk melancarkan sirkulasi darah serta menjaga fungsi kognitif otak.',
-        'kandungan'      => 'Flavonoid, terpenoid, ginkgolide A, kaempferol, isorhamnetin, shikimic acid, ginkgolic acid, bilobol, dan ginkgotoxin (pada biji).',
-        'khasiat'        => 'Melancarkan peredaran darah ke otak, mata, dan telinga; membantu fungsi pernapasan; mengatasi batuk, asma, pikun/Alzheimer, kolesterol tinggi, tinnitus (telinga berdenging), serta membantu masalah diare dan rambut rontok.',
-        'bagian_dipakai' => 'Daun dan biji tua. Daun dipetik saat musim gugur, dicuci bersih, dan dijemur kering. Biji dikupas kulit luarnya, dicuci, dan dijemur kering.',
-        'sediaan'        => 'Kapsul ekstrak terstandar, seduhan teh biji, dan baluran topikal daun segar.',
-        'aturan_pakai'   => '<b>Diminum (Olahan Daun):</b> Gunakan kapsul ekstrak herbal terstandar (dosis 3 x 40 mg sehari).<br><br>' .
-                            '<b>Diminum (Seduhan Biji):</b> Seduh biji ginkgo dengan air panas seperti menyeduh teh untuk meredakan batuk, asma, atau alergi.<br><br>' .
-                            '<b>Obat Luar (Kulit Kepala):</b> Tumbuk halus daun ginkgo segar, lalu balurkan dan gosok secara rutin ke kulit kepala untuk menyuburkan rambut.',
-        'keamanan'       => 'Konsumsi daun ginkgo dapat memicu mual, muntah, produksi air liur berlebih, nafsu makan berkurang, pusing, atau sakit kepala. Biji ginkgo mengandung sedikit racun (ginkgotoxin) dan ginkgolic acid yang dapat memicu reaksi alergi cukup kuat pada kulit jika terkena secara langsung.',
+        'deskripsi'      => 'Ginkgo biloba merupakan salah satu spesies pohon tertua di dunia yang kaya akan flavonoid dan terpenoid untuk melancarkan sirkulasi darah ke otak.',
+        'kandungan'      => 'Flavonoid, terpenoid, ginkgolide A, kaempferol.',
+        'khasiat'        => 'Melancarkan peredaran darah ke otak dan mata, membantu fungsi kognitif, mengatasi pikun/Alzheimer.',
+        'bagian_dipakai' => 'Daun dan biji tua.',
+        'sediaan'        => 'Kapsul ekstrak terstandar, seduhan teh.',
+        'aturan_pakai'   => 'Gunakan kapsul ekstrak herbal terstandar sesuai anjuran kemasan (umumnya 3 x 40 mg sehari).',
+        'keamanan'       => 'Dapat memicu mual atau sakit kepala ringan pada sebagian orang.',
         'referensi'      => 'Ulbricht, C., et al. (2009). An evidence-based systematic review of ginkgo. Journal of Dietary Supplements.',
         'link_referensi' => 'https://www.google.com/search?q=An+evidence-based+systematic+review+of+ginkgo+Ulbricht',
-        'nama_produk'    => 'Bubuk Ekstrak Ginkgo',
-        'link_affiliate' => 'https://s.shopee.co.id/3VkQtlToAe'
+        'nama_produk'    => 'Ekstrak Ginkgo Biloba Kapsul Murni',
+        'link_affiliate' => 'https://shopee.co.id/'
+    ],
+    9 => [
+        'nama_lokal'     => 'Anting-Anting',
+        'nama_latin'     => 'Acalypha australis L.',
+        'gambar'         => 'images/anting_anting.jpg',
+        'deskripsi'      => 'Anting-anting adalah tanaman terna liar yang sering ditemukan di kebun atau pinggir jalan. Sangat disukai oleh kucing dan memiliki khasiat tradisional untuk mengatasi gangguan pencernaan.',
+        'kandungan'      => 'Flavonoid, tanin, fenol dan steroid.',
+        'khasiat'        => 'Disentri basiler, disentri amuba, diare, muntah darah, batuk, mimisan, gangguan kulit, luka bakar dan pendarahan.',
+        'bagian_dipakai' => 'Herba atau seluruh tanaman, termasuk akar.',
+        'sediaan'        => 'Air Rebusan, Tumbukan luar.',
+        'aturan_pakai'   => '<b>Disentri amuba:</b> Rebus 30–60 g tanaman kering, air rebusannya diminum 2 kali sehari selama 5–10 hari.<br><br><b>Pendarahan & luka bakar:</b> Herba segar ditambah gula pasir secukupnya, dilumatkan, lalu ditempelkan.',
+        'keamanan'       => 'Data keamanan khusus terbatas. Jangan berlebihan. Hati-hati interaksi dengan obat pengencer darah seperti warfarin dan aspirin.',
+        'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media; Sebaluck et al. (2015).',
+        'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
+        'nama_produk'    => 'Herba Anting-Anting Kering / Simplisia',
+        'link_affiliate' => 'https://shopee.co.id/'
+    ],
+    10 => [
+        'nama_lokal'     => 'Bendotan',
+        'nama_latin'     => 'Ageratum conyzoides L.',
+        'gambar'         => 'images/bandotan.jpg',
+        'deskripsi'      => 'Bandotan adalah tumbuhan gulma berkhasiat obat yang sering digunakan masyarakat untuk pertolongan pertama pada luka luar, sariawan, dan demam.',
+        'kandungan'      => 'Flavonoid, alkaloid, tanin, fenol, terpenoid, steroid, kumarin, kromena dan minyak atsiri.',
+        'khasiat'        => 'Pencegah kehamilan, selesma, bisul, eksim, luka, pendarahan, sariawan, bengkak karena memar, malaria dan influenza.',
+        'bagian_dipakai' => 'Herba atau bagian tanaman di atas tanah, daun, batang muda, dan akar.',
+        'sediaan'        => 'Air Rebusan, Tumbukan halus.',
+        'aturan_pakai'   => '<b>Obat Minum:</b> Rebus 15–30 g herba kering atau 30–60 g herba segar lalu diminum.<br><br><b>Luka Berdarah & Eksim:</b> Tumbuk halus herba segar, tempelkan pada bagian yang sakit.',
+        'keamanan'       => 'Uji toksisitas akut aman hingga dosis 2.000 mg/kg BB pada hewan uji. Berhati-hati bila digunakan bersama obat pengencer darah (heparin, warfarin, aspirin).',
+        'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
+        'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
+        'nama_produk'    => 'Daun Bandotan Kering / Simplisia',
+        'link_affiliate' => 'https://shopee.co.id/'
+    ],
+    11 => [
+        'nama_lokal'     => 'Sambiloto',
+        'nama_latin'     => 'Andrographis paniculata',
+        'gambar'         => 'images/sambiloto.jpg',
+        'deskripsi'      => 'Varian alternatif Sambiloto yang difokuskan khusus untuk penanganan demam, influenza, dan infeksi saluran pernapasan atas.',
+        'kandungan'      => 'Andrografolida, Flavonoid total, Senyawa pahit lakton.',
+        'khasiat'        => 'Menurunkan demam tinggi, meredakan gejala selesma/flu, mengatasi infeksi bakteri ringan, dan stimulan imun.',
+        'bagian_dipakai' => 'Bagian atas tanaman (daun dan ranting kering)',
+        'sediaan'        => 'Ekstrak cair, Kapsul herbal terstandar.',
+        'aturan_pakai'   => 'Konsumsi kapsul ekstrak 3 kali sehari sesudah makan selama gejala flu atau demam masih terasa.',
+        'keamanan'       => 'Tidak dianjurkan untuk ibu hamil karena memiliki efek kontraksi uterus ringan.',
+        'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
+        'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
+        'nama_produk'    => 'Kapsul Ekstrak Sambiloto Standar',
+        'link_affiliate' => 'https://s.shopee.co.id/2LYTVztxmu?share_channel_code=1'
     ]
 ];
 
