@@ -1,262 +1,537 @@
 <?php 
 include 'header.php'; 
 
-// Data Detail Tanaman (IDs 1 s.d 10)
 $plants = [
-    1 => [
-        'nama_lokal'     => 'Kunyit',
-        'nama_latin'     => 'Curcuma longa',
-        'gambar'         => 'images/kunyit.jpg',
-        'deskripsi'      => 'Kunyit adalah tanaman rempah dan obat asli kawasan Asia Tenggara. Memiliki kandungan kurkuminoid yang memberikan warna kuning khas dan kaya akan manfaat kesehatan.',
-        'kandungan'      => 'Kurkuminoid, Kurkumin, Desmetoksikurkumin, Bisdesmetoksikurkumin, Minyak Atsiri.',
-        'khasiat'        => 'Antioksidan, Antiinflamasi, Membantu Gangguan Pencernaan, Menjaga Kesehatan Lambung.',
-        'bagian_dipakai' => 'Rimpang',
-        'sediaan'        => 'Simplisia, Serbuk, Ekstrak Kapsul, Jamu Cendol/Seduh.',
-        'aturan_pakai'   => 'Secara umum dapat dikonsumsi 1–2 kali sehari dalam bentuk seduhan serbuk (1 sendok teh) atau sesuai dosis kapsul ekstrak terstandar.',
-        'keamanan'       => 'Aman digunakan sesuai dosis. Hindari dosis berlebihan pada wanita hamil.',
-        'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
-        'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
-        'nama_produk'    => 'Kunyit Bubuk Murni / Serbuk Kunyit Asli',
-        'link_affiliate' => 'https://s.shopee.co.id/3qN8EDf4RV'
+    'kunyit' => [
+        'nama_lokal' => 'Kunyit',
+        'nama_latin' => 'Curcuma longa',
+        'gambar' => 'images/kunyit.jpg',
+        'kandungan' => 'Kurkuminoid termasuk kurkumin, desmetoksikurkumin, bisdemetoksikurkumin, resin, minyak atsiri termasuk α dan β tumern, artumeron, α dan γ atlanton, kurlon, zingiberene dan kurkumol.',
+        'manfaat' => 'Digunakan untuk penderita kencing manis, rematik, penyakit kulit, demam, sembelit, kurang darah, kolagogum, mengurangi kejang, melancarkan lendir pilek, radang usus buntu, radang rahim, amandel, asma, gatal, gusi bengkak, koreng, encok, perut nyeri, darah tinggi, demam-nifas, mencret, gabag, keputihan, kudis, disentri, dan influenza.',
+        'bagian' => 'Rimpang',
+        'cara_pemanfaatan' => 'Hepatoprotektor: Kunyit 3g, Temulawak 5g, Sangketan 2g, Sambung nyawa 2g, Air 400ml (rebus 15 menit, minum 3x sehari setelah makan).',
+        'keamanan' => 'Penggunaan pada kehamilan dan menyusui harus dengan pengawasan dokter.',
+        'interaksi' => 'Gunakan sesuai anjuran dan konsultasikan dengan tenaga medis terkait obat pendamping.',
+        'referensi_url' => 'https://www.google.com/search?q=Mengenal+lebih+dekat+TOGA+di+sekitar+kita+jilid+2+Surabaya',
+        'referensi_teks' => 'Jayani, N.I.E., dkk. (2023) Mengenal lebih dekat TOGA di sekitar kita jilid 2. Surabaya: Universitas Surabaya.',
+        'affiliate_products' => [
+            ['nama' => 'Ekstrak Kunyit Kapsul', 'harga' => 'Rp 45.000', 'gambar' => 'images/kunyit.jpg', 'link' => 'https://shopee.co.id/search?keyword=kapsul%20kunyit']
+        ]
     ],
-    2 => [
-        'nama_lokal'     => 'Temulawak',
-        'nama_latin'     => 'Curcuma zanthorrhiza',
-        'gambar'         => 'images/temulawak.jpg',
-        'deskripsi'      => 'Temulawak merupakan tanaman obat asli Indonesia yang sering digunakan untuk menjaga fungsi hati (hepatoprotektor) dan meningkatkan nafsu makan.',
-        'kandungan'      => 'Kurkumin, Xanthorrhizol, Minyak Atsiri, Pati, Protein.',
-        'khasiat'        => 'Hepatoprotektor (Kesehatan Hati), Menambah Nafsu Makan, Imunitas, Antiinflamasi.',
-        'bagian_dipakai' => 'Rimpang',
-        'sediaan'        => 'Kapsul Ekstrak, Sirup, Serbuk Seduh.',
-        'aturan_pakai'   => 'Diminum 1–2 kali sehari setelah makan.',
-        'keamanan'       => 'Relatif aman. Hati-hati penggunaan jangka panjang pada penderita batu empedu.',
-        'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
-        'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
-        'nama_produk'    => 'Temulawak Bubuk / Serbuk Temulawak Murni',
-        'link_affiliate' => 'https://s.shopee.co.id/AUu2AO4J0P'
+    'jahe' => [
+        'nama_lokal' => 'Jahe',
+        'nama_latin' => 'Zingiber officinale',
+        'gambar' => 'images/jahe.jpg',
+        'kandungan' => 'Rimpang jahe mengandung minyak atsiri dan oleoresin dengan senyawa marker gingerol dan shogaol.',
+        'manfaat' => 'Mengurangi perut kembung, meredakan batuk, radang tenggorokan, masuk angin (penghangat badan), meringankan nyeri, sakit kepala, memperbaiki nafsu makan, dan obat luar untuk kesleo, bengkak serta memar.',
+        'bagian' => 'Rimpang',
+        'cara_pemanfaatan' => 'Radang tenggorokan: Kapulaga 1g, rimpang jahe 1g, kulit kayu manis 1g dicampur menjadi 3 bungkus (minum 3x sehari).',
+        'keamanan' => 'Sedikit terjadi nyeri gastrointestinal dan rasa tidak enak pada ulu hati.',
+        'interaksi' => 'Jahe dapat berinteraksi dengan obat antikoagulan, antiplatelet, heparin, dan trombolitik (meningkatkan risiko pendarahan).',
+        'referensi_url' => 'https://www.google.com/search?q=Formularium+Obat+Herbal+Asli+Indonesia+Kemenkes',
+        'referensi_teks' => 'Kementerian Kesehatan Republik Indonesia. (2016) Formularium Obat Herbal Asli Indonesia. Jakarta: Kemenkes RI.',
+        'affiliate_products' => [
+            ['nama' => 'Sari Jahe Merah Bubuk', 'harga' => 'Rp 35.000', 'gambar' => 'images/jahe.jpg', 'link' => 'https://shopee.co.id/search?keyword=jahe%20merah']
+        ]
     ],
-    3 => [
-        'nama_lokal'     => 'Jahe',
-        'nama_latin'     => 'Zingiber officinale',
-        'gambar'         => 'images/jahe.jpg',
-        'deskripsi'      => 'Jahe terkenal dengan rasa pedas hangat yang berasal dari senyawa gingerol. Sangat efektif untuk mengatasi mual dan menghangatkan tubuh.',
-        'kandungan'      => 'Gingerol, Shogaol, Zingeron, Minyak Atsiri (Zingiberena, Kurkumena).',
-        'khasiat'        => 'Meredakan Mual & Masuk Angin, Antioksidan, Meringankan Batuk & Penghangat Badan.',
-        'bagian_dipakai' => 'Rimpang',
-        'sediaan'        => 'Teh Herbal, Serbuk, Ekstrak Kapsul, Simplisia Dry.',
-        'aturan_pakai'   => 'Seduh 1 potong rimpang memar atau 1 sdt serbuk dengan air hangat 2–3 kali sehari.',
-        'keamanan'       => 'Dapat menyebabkan efek perih lambung jika dikonsumsi berlebihan saat perut kosong.',
-        'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
-        'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
-        'nama_produk'    => 'Bubuk Jahe Merah / Jahe Bubuk Murni',
-        'link_affiliate' => 'https://s.shopee.co.id/AKabxvnXVJ'
+    'asam_jawa' => [
+        'nama_lokal' => 'Asam Jawa',
+        'nama_latin' => 'Tamarindus indica, Linn',
+        'gambar' => 'images/asam_jawa.jpg',
+        'kandungan' => 'Mengandung asam sitrat, asam tartart, asam suksinat, pectin gula invert, zat besi, vitamin A, B1, C, phlobatannin, albuminoid serta pati.',
+        'manfaat' => 'Mengobati asma, batuk, demam, rematik, sakit perut, sariawan, luka borok, eksim, bisul, gigitan ular, dan rambut rontok.',
+        'bagian' => 'Buah, daun, dan biji',
+        'cara_pemanfaatan' => 'Asma: 2 potong kulit pohon asam jawa + adas pulowaras direbus dalam 1 liter air.',
+        'keamanan' => 'Penggunaan berlebihan dapat menyebabkan mual, sakit perut, atau diare.',
+        'interaksi' => 'Gunakan sesuai anjuran medis.',
+        'referensi_url' => 'https://www.google.com/search?q=Mengenal+lebih+dekat+TOGA+di+sekitar+kita+jilid+2+Surabaya',
+        'referensi_teks' => 'Jayani, N.I.E., dkk. (2023) Mengenal lebih dekat TOGA di sekitar kita jilid 2. Surabaya: Universitas Surabaya.',
+        'affiliate_products' => [
+            ['nama' => 'Asam Jawa Tanpa Biji', 'harga' => 'Rp 18.000', 'gambar' => 'images/asam_jawa.jpg', 'link' => 'https://shopee.co.id/search?keyword=asam%20jawa']
+        ]
     ],
-    4 => [
-        'nama_lokal'     => 'Sambiloto',
-        'nama_latin'     => 'Andrographis paniculata',
-        'gambar'         => 'images/sambiloto.jpg',
-        'deskripsi'      => 'Sambiloto dikenal sebagai "Raja Pahit". Tanaman ini kaya akan androgratolida yang ampuh menstimulasi kekebalan tubuh dan membantu mengontrol gula darah.',
-        'kandungan'      => 'Andrografolida, Neoandrografolida, Flavonoid, Alkana, Ketone.',
-        'khasiat'        => 'Antidiabetes, Antibakteri, Menjaga Imunitas, Meredakan Demam & Flu.',
-        'bagian_dipakai' => 'Daun dan Herba (bagian di atas tanah)',
-        'sediaan'        => 'Kapsul Ekstrak, Jamu Pahit, Simplisia.',
-        'aturan_pakai'   => 'Dikonsumsi dalam bentuk kapsul ekstrak 2 kali sehari sesudah makan.',
-        'keamanan'       => 'Tidak disarankan untuk wanita hamil dan menyusui serta pasien hipotensi.',
-        'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
-        'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
-        'nama_produk'    => 'Daun Sambiloto Bubuk / Kapsul Sambiloto Murni',
-        'link_affiliate' => 'https://s.shopee.co.id/8AW7O9qXKc'
+    'sambiloto' => [
+        'nama_lokal' => 'Sambiloto',
+        'nama_latin' => 'Andrographis paniculata',
+        'gambar' => 'images/sambiloto.jpg',
+        'kandungan' => 'Andrografolid sebagai senyawa utama, flavonoid, diterpenoid, steroid dan fenolik.',
+        'manfaat' => 'Febrifuga (penurun demam), penambah nafsu makan, obat cacing, gatal, kudis, kencing manis, radang usus, dan tifus.',
+        'bagian' => 'Herba, terutama daun',
+        'cara_pemanfaatan' => 'Kencing manis: Daun sambiloto 25 helai + kumis kucing 25 helai direbus dengan 110 mL air.',
+        'keamanan' => 'Dapat menyebabkan gangguan saluran cerna atau reaksi kulit pada sebagian orang.',
+        'interaksi' => 'Gunakan hati-hati bersama warfarin dan aspirin.',
+        'referensi_url' => 'https://www.google.com/search?q=Pratama+AB+Khasiat+tanaman+obat+herbal+Pustaka+Media',
+        'referensi_teks' => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
+        'affiliate_products' => [
+            ['nama' => 'Kapsul Sambiloto Herbal', 'harga' => 'Rp 40.000', 'gambar' => 'images/sambiloto.jpg', 'link' => 'https://shopee.co.id/search?keyword=kapsul%20sambiloto']
+        ]
     ],
-    5 => [
-        'nama_lokal'     => 'Pegagan',
-        'nama_latin'     => 'Centella asiatica',
-        'gambar'         => 'images/pegagan.jpg',
-        'deskripsi'      => 'Pegagan atau Gotu Kola populer sebagai herbal penambah daya ingat dan kesehatan saraf. Mengandung asiaticoside yang bagus untuk regenerasi sel.',
-        'kandungan'      => 'Asiaticoside, Madecassoside, Asiatic Acid, Madecassic Acid, Vellarine.',
-        'khasiat'        => 'Meningkatkan Daya Ingat (Fungsi Kognitif), Menyembuhkan Luka, Antioksidan.',
-        'bagian_dipakai' => 'Daun dan Batang',
-        'sediaan'        => 'Teh Herbal, Kapsul Ekstrak, Salep/Krim.',
-        'aturan_pakai'   => 'Diminum 1–2 kali sehari sebagai teh herbal atau kapsul.',
-        'keamanan'       => 'Penggunaan berlebihan dapat menyebabkan kantuk atau mual.',
-        'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
-        'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
-        'nama_produk'    => 'Pegagan Bubuk / Centella Asiatica Powder Murni',
-        'link_affiliate' => 'https://s.shopee.co.id/112wqxN1k7'
+    'pegagan' => [
+        'nama_lokal' => 'Pegagan',
+        'nama_latin' => 'Centella asiatica',
+        'gambar' => 'images/pegagan.jpg',
+        'kandungan' => 'Asiaticoside, madecassoside, centelloside, dan antioksidan.',
+        'manfaat' => 'Meningkatkan fungsi otak, daya ingat, penyembuhan luka, dan sirkulasi darah.',
+        'bagian' => 'Herba / Seluruh tanaman',
+        'cara_pemanfaatan' => 'Seduh 1 sendok teh daun pegagan kering dengan air mendidih.',
+        'keamanan' => 'Penggunaan berlebihan dapat menyebabkan pusing.',
+        'interaksi' => 'Dapat memperkuat efek obat penenang.',
+        'referensi_url' => 'https://www.google.com/search?q=Pratama+AB+Khasiat+tanaman+obat+herbal+Pustaka+Media',
+        'referensi_teks' => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
+        'affiliate_products' => [
+            ['nama' => 'Kapsul Ekstrak Pegagan', 'harga' => 'Rp 50.000', 'gambar' => 'images/pegagan.jpg', 'link' => 'https://shopee.co.id/search?keyword=kapsul%20pegagan']
+        ]
     ],
-    6 => [
-        'nama_lokal'     => 'Asam Jawa',
-        'nama_latin'     => 'Tamarindus indica, Linn',
-        'gambar'         => 'images/asam_jawa.jpg',
-        'deskripsi'      => 'Asam Jawa merupakan tanaman herbal yang kaya akan asam organik serta vitamin. Digunakan secara luas dalam pengobatan tradisional untuk berbagai keluhan kesehatan.',
-        'kandungan'      => 'Mengandung asam sitrat, asam tartrat, asam suksinat, pectin gula invert, zat besi, vitamin A, vitamin B1, vitamin C, phlobatannin, albuminoid serta pati.',
-        'khasiat'        => 'Dapat mengobati asma, batuk, demam, sakit panas, reumatik, sakit perut, morbili, alergi/biduren, sariawan, luka baru, luka borok, eksim, bisul, bengkak disengat lipan/lebah, gigitan ular berbisa, rambut rontok.',
-        'bagian_dipakai' => 'Buah, daun, dan biji.',
-        'sediaan'        => 'Seduhan, rebusan, penggunaan langsung.',
-        'aturan_pakai'   => '<b>Asma:</b> Rebus 2 potong kulit pohon asam jawa + adas pulowaras secukupnya dalam 1 liter air hingga mendidih, lalu saring (Minum 2x sehari).<br><br><b>Batuk Kering:</b> Rebus 3 polong buah asam jawa + 1/2 genggam daun saga dengan 4 gelas air hingga tersisa 1 gelas.',
-        'keamanan'       => 'Penggunaan asam jawa dalam jumlah berlebihan dapat menyebabkan gangguan pencernaan.',
-        'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
-        'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
-        'nama_produk'    => 'Asam Jawa Daging Murni / Ekstrak Asam Jawa',
-        'link_affiliate' => 'https://s.shopee.co.id/W6pEFN9fY'
+    'ginkgo' => [
+        'nama_lokal' => 'Daun Ginkgo Biloba',
+        'nama_latin' => 'Ginkgo biloba',
+        'gambar' => 'images/ginkgo.jpg',
+        'kandungan' => 'Flavonoid, terpenoid, ginkgolide A, kaempterol, dan ginkgolic acid.',
+        'manfaat' => 'Melancarkan peredaran darah ke otak, meredakan batuk, asma, jantung, Alzheimer, dan obat diare.',
+        'bagian' => 'Daun dan Biji',
+        'cara_pemanfaatan' => 'Kapsul ekstrak (3 x 40 mg sehari) atau biji diseduh air panas.',
+        'keamanan' => 'Bisa memicu mual, sakit kepala, atau reaksi alergi kulit.',
+        'interaksi' => 'Hindari bersamaan obat pengencer darah.',
+        'referensi_url' => 'https://www.google.com/search?q=Pratama+AB+Khasiat+tanaman+obat+herbal+Pustaka+Media',
+        'referensi_teks' => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
+        'affiliate_products' => [
+            ['nama' => 'Ginkgo Biloba Extract', 'harga' => 'Rp 120.000', 'gambar' => 'images/ginkgo.jpg', 'link' => 'https://shopee.co.id/search?keyword=ginkgo%20biloba']
+        ]
     ],
-    7 => [
-        'nama_lokal'     => 'Selasih',
-        'nama_latin'     => 'Ocimum basilicum L.',
-        'gambar'         => 'images/selasih.jpg',
-        'deskripsi'      => 'Selasih merupakan tanaman herba aromatik dengan rasa pedas hangat dan biji yang bersifat sejuk. Digunakan secara luas untuk pengobatan tradisional dan campuran minuman herbal.',
-        'kandungan'      => 'Linalool, methylchavicol, ocimene, eugenole, vitamin (A dan C), asam lemak.',
-        'khasiat'        => 'Peluruh keringat (diaforetik), peluruh urine (diuretik), analgesik, penenang ringan, antiseptik, antibakteri.',
-        'bagian_dipakai' => 'Herba, biji.',
-        'sediaan'        => 'Seduhan, rebusan, bubuk.',
-        'aturan_pakai'   => 'Rebus 10–15 g herba atau rendam biji secukupnya dalam air hangat sebelum diminum.',
-        'keamanan'       => 'Umumnya aman. Hati-hati bagi ibu hamil dan yang mengonsumsi obat pengencer darah.',
-        'referensi'      => 'Dalimartha S. Atlas tumbuhan obat Indonesia jilid 1. Jakarta: Trubus Agriwidya; 1999.',
-        'link_referensi' => 'https://www.google.com/search?q=Dalimartha+S+Atlas+tumbuhan+obat+Indonesia+jilid+1',
-        'nama_produk'    => 'Biji Selasih Murni / Ekstrak Selasih',
-        'link_affiliate' => 'https://shopee.co.id/'
+    'anting_anting' => [
+        'nama_lokal' => 'Anting-Anting',
+        'nama_latin' => 'Acalypha australis L.',
+        'gambar' => 'images/anting_anting.jpg',
+        'kandungan' => 'Flavonoid, tanin, fenol dan steroid.',
+        'manfaat' => 'Disentri, diare, muntah darah, batuk, mimisan, eksim, koreng, dan luka bakar.',
+        'bagian' => 'Herba atau seluruh tanaman termasuk akar',
+        'cara_pemanfaatan' => 'Tanaman kering 30-60 g direbus lalu diminum 2 kali sehari.',
+        'keamanan' => 'Sebaiknya tidak digunakan berlebihan dalam jangka panjang.',
+        'interaksi' => 'Hati-hati dengan obat pengencer darah.',
+        'referensi_url' => 'https://www.google.com/search?q=Medicinal+plants+from+the+genus+Acalypha+Seebaluck',
+        'referensi_teks' => 'Seebaluck, R., dkk. (2015) Medicinal plants from the genus Acalypha. Journal of Ethnopharmacology.',
+        'affiliate_products' => [
+            ['nama' => 'Herbal Kering Anting-Anting', 'harga' => 'Rp 15.000', 'gambar' => 'images/anting_anting.jpg', 'link' => 'https://shopee.co.id/search?keyword=anting%20anting']
+        ]
     ],
-    8 => [
-        'nama_lokal'     => 'Ginkgo Biloba',
-        'nama_latin'     => 'Ginkgo biloba L.',
-        'gambar'         => 'images/ginkgo.jpg',
-        'deskripsi'      => 'Ginkgo biloba merupakan salah satu spesies pohon tertua di dunia yang kaya akan flavonoid dan terpenoid untuk melancarkan sirkulasi darah ke otak.',
-        'kandungan'      => 'Flavonoid, terpenoid, ginkgolide A, kaempferol.',
-        'khasiat'        => 'Melancarkan peredaran darah ke otak dan mata, membantu fungsi kognitif, mengatasi pikun/Alzheimer.',
-        'bagian_dipakai' => 'Daun dan biji tua.',
-        'sediaan'        => 'Kapsul ekstrak terstandar, seduhan teh.',
-        'aturan_pakai'   => 'Gunakan kapsul ekstrak herbal terstandar sesuai anjuran kemasan (umumnya 3 x 40 mg sehari).',
-        'keamanan'       => 'Dapat memicu mual atau sakit kepala ringan pada sebagian orang.',
-        'referensi'      => 'Ulbricht, C., et al. (2009). An evidence-based systematic review of ginkgo. Journal of Dietary Supplements.',
-        'link_referensi' => 'https://www.google.com/search?q=An+evidence-based+systematic+review+of+ginkgo+Ulbricht',
-        'nama_produk'    => 'Ekstrak Ginkgo Biloba Kapsul Murni',
-        'link_affiliate' => 'https://shopee.co.id/'
+    'bandotan' => [
+        'nama_lokal' => 'Bandotan',
+        'nama_latin' => 'Ageratum conyzoides L.',
+        'gambar' => 'images/bandotan.jpg',
+        'kandungan' => 'Flavonoid, alkaloid, tanin, fenol, terpenoid, steroid, dan minyak atsiri.',
+        'manfaat' => 'Selesma, bisul, eksim, luka pendarahan, bengkak memar, dan malaria.',
+        'bagian' => 'Herba di atas tanah, daun, batang muda dan akar',
+        'cara_pemanfaatan' => 'Herba kering 15-30 g direbus lalu diminum.',
+        'keamanan' => 'Dapat memicu mual, muntah, atau efek toksik hati jika berlebihan.',
+        'interaksi' => 'Dapat berinteraksi dengan obat pengencer darah.',
+        'referensi_url' => 'https://www.google.com/search?q=Pratama+AB+Khasiat+tanaman+obat+herbal+Pustaka+Media',
+        'referensi_teks' => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
+        'affiliate_products' => [
+            ['nama' => 'Salep Ekstrak Bandotan', 'harga' => 'Rp 35.000', 'gambar' => 'images/bandotan.jpg', 'link' => 'https://shopee.co.id/search?keyword=ekstrak%20bandotan']
+        ]
     ],
-    9 => [
-        'nama_lokal'     => 'Anting-Anting',
-        'nama_latin'     => 'Acalypha australis L.',
-        'gambar'         => 'images/anting_anting.jpg',
-        'deskripsi'      => 'Anting-anting adalah tanaman terna liar yang sering ditemukan di kebun atau pinggir jalan. Sangat disukai oleh kucing dan memiliki khasiat tradisional untuk mengatasi gangguan pencernaan.',
-        'kandungan'      => 'Flavonoid, tanin, fenol dan steroid.',
-        'khasiat'        => 'Disentri basiler, disentri amuba, diare, muntah darah, batuk, mimisan, gangguan kulit, luka bakar dan pendarahan.',
-        'bagian_dipakai' => 'Herba atau seluruh tanaman, termasuk akar.',
-        'sediaan'        => 'Air Rebusan, Tumbukan luar.',
-        'aturan_pakai'   => '<b>Disentri amuba:</b> Rebus 30–60 g tanaman kering, air rebusannya diminum 2 kali sehari selama 5–10 hari.<br><br><b>Pendarahan & luka bakar:</b> Herba segar ditambah gula pasir secukupnya, dilumatkan, lalu ditempelkan.',
-        'keamanan'       => 'Data keamanan khusus terbatas. Jangan berlebihan. Hati-hati interaksi dengan obat pengencer darah seperti warfarin dan aspirin.',
-        'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media; Sebaluck et al. (2015).',
-        'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
-        'nama_produk'    => 'Herba Anting-Anting Kering / Simplisia',
-        'link_affiliate' => 'https://shopee.co.id/'
+    'selasih' => [
+        'nama_lokal' => 'Selasih',
+        'nama_latin' => 'Ocimum basilicum L.',
+        'gambar' => 'images/selasih.jpg',
+        'kandungan' => 'Linalool, methylchavicol, ocimene, eugenol, anethole, vitamin A, C.',
+        'manfaat' => 'Peluruh keringat, peluruh urine, peluruh kentut, penghilang nyeri, antiseptik, dan eksim.',
+        'bagian' => 'Herba dan biji',
+        'cara_pemanfaatan' => 'Rebus 10-15 g herba atau tumbuk dan peras airnya.',
+        'keamanan' => 'Hati-hati dosis tinggi karena kandungan estragole.',
+        'interaksi' => 'Dapat memperkuat efek penurun tekanan darah dan pengencer darah.',
+        'referensi_url' => 'https://www.google.com/search?q=Ulbricht+systematic+review+of+basil+Ocimum+basilicum',
+        'referensi_teks' => 'Ulbricht, C., dkk. (2009) An evidence-based systematic review of basil. Journal of Dietary Supplements.',
+        'affiliate_products' => [
+            ['nama' => 'Biji Selasih Murni 250gr', 'harga' => 'Rp 20.000', 'gambar' => 'images/selasih.jpg', 'link' => 'https://shopee.co.id/search?keyword=biji%20selasih']
+        ]
     ],
-    10 => [
-        'nama_lokal'     => 'Bandotan (Bendotan)',
-        'nama_latin'     => 'Ageratum conyzoides L.',
-        'gambar'         => 'images/bandotan.jpg',
-        'deskripsi'      => 'Bandotan adalah tumbuhan gulma berkhasiat obat yang sering digunakan masyarakat untuk pertolongan pertama pada luka luar, sariawan, dan demam.',
-        'kandungan'      => 'Flavonoid, alkaloid, tanin, fenol, terpenoid, steroid, kumarin, kromena dan minyak atsiri.',
-        'khasiat'        => 'Pencegah kehamilan, selesma, bisul, eksim, luka, pendarahan, sariawan, bengkak karena memar, malaria dan influenza.',
-        'bagian_dipakai' => 'Herba atau bagian tanaman di atas tanah, daun, batang muda, dan akar.',
-        'sediaan'        => 'Air Rebusan, Tumbukan halus.',
-        'aturan_pakai'   => '<b>Obat Minum:</b> Rebus 15–30 g herba kering atau 30–60 g herba segar lalu diminum.<br><br><b>Luka Berdarah & Eksim:</b> Tumbuk halus herba segar, tempelkan pada bagian yang sakit.',
-        'keamanan'       => 'Uji toksisitas akut aman hingga dosis 2.000 mg/kg BB pada hewan uji. Berhati-hati bila digunakan bersama obat pengencer darah (heparin, warfarin, aspirin).',
-        'referensi'      => 'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
-        'link_referensi' => 'https://www.google.com/search?q=Pratama+A+B+2021+Khasiat+tanaman+obat+herbal+Pustaka+Media',
-        'nama_produk'    => 'Daun Bandotan Kering / Simplisia',
-        'link_affiliate' => 'https://shopee.co.id/'
-    ]11 => [
+    'adas' => [
         'nama_lokal' => 'Adas',
         'nama_latin' => 'Foeniculum vulgare Mill.',
         'gambar' => 'images/adas.jpg',
         'kandungan' => 'Minyak atsiri, fenkon, pinen, limonen, dipanten, felandren, anisaldehid, dan asam anisat.',
-        'manfaat' => 'Sakit perut (mulas), perut kembung, mual, muntah, ASI sedikit, diare, sakit kuning (jaundice), kurang nafsu makan, batuk, sesak napas (asma), nyeri haid, haid tidak teratur, rematik gout, susah tidur (insomnia), buah pelir turun (orchidoptosis), kolik, usus turun ke lipat paha (hernia inguinalis), batu empedu, pembengkakan saluran sperma (epididimis), penimbunan cairan dalam kantung buah zakar (hidrokel testis), keracunan tumbuhan/jamur, serta meningkatkan penglihatan.',
-        'bagian_digunakan' => 'Daun dan buah.',
-        'cara_pemanfaatan' => [
-            'Batuk (Cara 1): Seduh 5 g serbuk adas dengan ½ cangkir air mendidih, saring, lalu tambah 1 sdt madu. Minum 2 kali sehari.',
-            'Batuk (Cara 2): Rebus daun saga (¼ genggam), kembang sepatu (2 kuntum), daun poko (1/5 genggam), tembelekan (10 kuntum), bawang merah (2 butir), adas (1 sdt), pulosari (1 jari), jahe (1 jari), dan gula merah (3 jari) dengan 3 gelas air hingga tersisa setengah. Saring, minum 3 kali sehari (½ gelas).',
-            'Batu Empedu: Seduh 5 g serbuk adas dengan 1 cangkir air panas. Minum tiap hari setelah dingin.',
-            'Haid Tidak Teratur: Rebus srigading (1/5 genggam), jinten hitam (¾ sdt), adas (½ sdt), pulosari (½ jari), kesumba keling (2 kuntum), jeruk nipis (2 buah), dan gula batu dengan 3 gelas air hingga tersisa 2¼ gelas. Saring, minum 3 kali sehari (¾ gelas).',
-            'Keracunan Tumbuhan/Jamur: Seduh 5 g serbuk adas dengan ½ cangkir arak. Minum selagi hangat.',
-            'Sariawan: Rebus adas (¾ sdt), ketumbar (¾ sdt), daun iler (1/5 genggam), daun saga (¼ genggam), sisik naga (1/5 genggam), sembung (¼ genggam), pegagan (¼ genggam), daun kentut (1/6 genggam), pulosari (¾ jari), lempuyang (½ jari), kunyit (½ jari), kayu manis (¾ jari), dan gula merah (3 jari) dengan 4½ gelas air hingga tersisa separuhnya. Saring, minum 3 kali sehari (¾ gelas).',
-            'Sesak Napas (Cara 1): Seduh 10 tetes minyak adas dengan 1 sdm air panas. Minum hangat 3 kali sehari.',
-            'Sesak Napas (Cara 2): Rebus adas (½ sdt), pulosari (¼ jari), kencur (2 jari), temulawak (1 jari), jintan hitam (¼ sdt), daun poncosudo (¼ genggam), dan gula merah (3 jari) dengan 4½ gelas air hingga tersisa separuhnya. Saring, minum 3 kali sehari (¾ gelas).'
-        ],
-        'keamanan' => 'Ibu hamil sebaiknya menghindari adas dalam dosis obat atau minyak pekat karena efek menyerupai estrogen (estrogenic effect) dapat merangsang kontraksi rahim.',
-        'interaksi_obat' => '1. Obat Hormonal & Pil KB: Adas mengandung fitoestrogen yang dapat mengganggu kerja pil KB dan terapi hormon.
-2. Obat Antihipertensi: Bersifat diuretik dan melebarkan pembuluh darah. Penggunaan bersamaan dapat memicu tekanan darah drop (hipotensi).
-3. Obat Antidiabetes: Adas menurunkan gula darah, kombinasi dengan obat diabetes berisiko memicu hipoglikemia.',
-        'referensi' => [
-            'Pratama, A. B. (2021). Khasiat tanaman obat herbal. Pustaka Media.',
-            'Albert-Puleo, M. (1980). Fennel and anise as estrogenic agents. Journal of Ethnopharmacology, 2(4), 337-344.'
+        'manfaat' => 'Sakit perut (mulas), perut kembung, mual, muntah, ASI sedikit, diare, sakit kuning (jaundice), kurang nafsu makan, batuk, sesak napas (asma), nyeri haid, haid tidak teratur, rematik gout, dan susah tidur (insomnia).',
+        'bagian' => 'Daun dan buah',
+        'cara_pemanfaatan' => 'Batuk: Seduh 5 g serbuk adas dengan ½ cangkir air mendidih, saring, lalu tambah 1 sdt madu (Minum 2 kali sehari). Batu Empedu: Seduh 5 g serbuk adas dengan 1 cangkir air panas.',
+        'keamanan' => 'Ibu hamil sebaiknya menghindari adas dalam dosis obat atau minyak pekat karena efek menyerupai estrogen dapat merangsang kontraksi rahim.',
+        'interaksi' => 'Adas dapat berinteraksi dengan pil KB/terapi hormon, obat antihipertensi (memicu hipotensi), dan obat antidiabetes.',
+        'referensi_url' => 'https://www.google.com/search?q=Fennel+and+anise+as+estrogenic+agents+Albert-Puleo',
+        'referensi_teks' => 'Albert-Puleo, M. (1980). Fennel and anise as estrogenic agents. Journal of Ethnopharmacology, 2(4), 337-344.',
+        'affiliate_products' => [
+            ['nama' => 'Biji Adas Kering Murni', 'harga' => 'Rp 15.000', 'gambar' => 'images/adas.jpg', 'link' => 'https://shopee.co.id/search?keyword=biji%20adas']
         ]
     ],
+    'baru_cina' => [
+        'nama_lokal' => 'Baru Cina',
+        'nama_latin' => 'Artemisia vulgaris Linn.',
+        'gambar' => 'images/baru_cina.jpg',
+        'kandungan' => 'Minyak menguap, Inulin, oxytocin, dan yomogi alkohol.',
+        'manfaat' => 'Sakit haid, disentri, keputihan, muntah darah, mimisan, dan pendarahan usus.',
+        'bagian' => 'Daun dan seluruh tanaman',
+        'cara_pemanfaatan' => 'Akar artemisia + jahe + gula enau direbus sampai tersisa 2 gelas.',
+        'keamanan' => 'Berpotensi toksik terhadap hepar dan ginjal jika berlebihan.',
+        'interaksi' => 'Berinteraksi dengan obat antikonvulsan dan pengencer darah.',
+        'referensi_url' => 'https://doi.org/10.1016/j.foodres.2018.04.058',
+        'referensi_teks' => 'Abiri, R., dkk. (2018) Towards a better understanding of Artemisia vulgaris. Food Research International.',
+        'affiliate_products' => [
+            ['nama' => 'Teh Herbal Daun Baru Cina', 'harga' => 'Rp 28.000', 'gambar' => 'images/baru_cina.jpg', 'link' => 'https://shopee.co.id/search?keyword=daun%20baru%20cina']
+        ]
+    ],
+    'lengkuas' => [
+        'nama_lokal' => 'Lengkuas',
+        'nama_latin' => 'Alpinia galanga',
+        'gambar' => 'images/lengkuas.jpg',
+        'kandungan' => 'Kamfer, sineol, asam metil sinamat, eugenol, dan antijamur 1\'-asetoksikavikol asetat.',
+        'manfaat' => 'Mengatasi perut kembung, antijamur alami, meredakan sakit perut, dan demam.',
+        'bagian' => 'Rimpang',
+        'cara_pemanfaatan' => 'Rimpang lengkuas merah 20g diparut, ditambah air hangat dan madu lalu diminum.',
+        'keamanan' => 'Umumnya aman sesuai takaran tradisional.',
+        'interaksi' => 'Belum ada catatan interaksi signifikan.',
+        'referensi_url' => 'https://www.google.com/search?q=Mengenal+lebih+dekat+TOGA+di+sekitar+kita+jilid+2+Surabaya',
+        'referensi_teks' => 'Jayani, N.I.E., dkk. (2023) Mengenal lebih dekat TOGA di sekitar kita jilid 2. Surabaya: Universitas Surabaya.',
+        'affiliate_products' => [
+            ['nama' => 'Rimpang Lengkuas Segar', 'harga' => 'Rp 10.000', 'gambar' => 'images/lengkuas.jpg', 'link' => 'https://shopee.co.id/search?keyword=lengkuas']
+        ]
+    ],
+    'kencur' => [
+        'nama_lokal' => 'Kencur',
+        'nama_latin' => 'Kaempferia galanga',
+        'gambar' => 'images/kencur.jpg',
+        'kandungan' => 'Minyak atsiri, etil trans-p-metoksi sinamat, pentadekan, 1,8-sineol, dan borneol.',
+        'manfaat' => 'Batuk, flu, gangguan tenggorokan, tekanan darah tinggi, sakit kepala, dan tonik.',
+        'bagian' => 'Rimpang',
+        'cara_pemanfaatan' => 'Rimpang kencur 15g segar diparut, diperas dengan air 50ml lalu diminum.',
+        'keamanan' => 'Dapat menyebabkan alergi atau heartburn pada sebagian orang.',
+        'interaksi' => 'Gunakan sesuai anjuran takaran.',
+        'referensi_url' => 'https://www.google.com/search?q=Mengenal+lebih+dekat+TOGA+di+sekitar+kita+jilid+2+Surabaya',
+        'referensi_teks' => 'Jayani, N.I.E., dkk. (2023) Mengenal lebih dekat TOGA di sekitar kita jilid 2. Surabaya: Universitas Surabaya.',
+        'affiliate_products' => [
+            ['nama' => 'Kapsul Ekstrak Kencur', 'harga' => 'Rp 35.000', 'gambar' => 'images/kencur.jpg', 'link' => 'https://shopee.co.id/search?keyword=kapsul%20kencur']
+        ]
+    ],
+    'temulawak' => [
+        'nama_lokal' => 'Temulawak',
+        'nama_latin' => 'Curcuma xanthorrhiza',
+        'gambar' => 'images/temulawak.jpg',
+        'kandungan' => 'Rimpang temulawak mengandung kurkumin, xhantorizol, kurkuminoid, minyak atsiri.',
+        'manfaat' => 'Digunakan untuk penderita gangguan perut, gangguan hati (penyakit kuning), meningkatkan sekresi empedu, memperlancar ASI, dan penambah nafsu makan.',
+        'bagian' => 'Rimpang',
+        'cara_pemanfaatan' => 'Rimpang temulawak segar 20 g, Asam jawa 1 g, Gula 30 g, Air 250 ml dibuat infusa dan diminum sekaligus, sehari 2 kali.',
+        'keamanan' => 'Dosis yang besar atau pemakaian berkepanjangan dapat mengakibatkan iritasi membran mukosa lambung.',
+        'interaksi' => 'Dapat meningkatkan potensi obat pengencer darah.',
+        'referensi_url' => 'https://www.google.com/search?q=Mengenal+lebih+dekat+TOGA+di+sekitar+kita+jilid+2+Surabaya',
+        'referensi_teks' => 'Jayani, N.I.E., dkk. (2023) Mengenal lebih dekat TOGA di sekitar kita jilid 2. Surabaya: Universitas Surabaya.',
+        'affiliate_products' => [
+            ['nama' => 'Temulawak Instan Gula Jawa', 'harga' => 'Rp 30.000', 'gambar' => 'images/temulawak.jpg', 'link' => 'https://shopee.co.id/search?keyword=temulawak%20instan']
+        ]
+    ],
+    'lempuyang_wangi' => [
+        'nama_lokal' => 'Lempuyang Wangi',
+        'nama_latin' => 'Zingiber zerumbet',
+        'gambar' => 'images/lempuyang_wangi.jpg',
+        'kandungan' => 'Rimpang lempuyang wangi mengandung minyak atsiri tidak kurang dari 0.75%.',
+        'manfaat' => 'Memperbaiki nafsu makan dan berfungsi sebagai obat batuk tradisional.',
+        'bagian' => 'Rimpang',
+        'cara_pemanfaatan' => 'Rimpang lempuyang wangi direbus dengan 2 gelas air hingga tersisa 1 gelas, dibagi menjadi 2 bagian.',
+        'keamanan' => 'Aman digunakan sesuai dosis tradisional.',
+        'interaksi' => 'Perhatikan penggunaannya bersamaan dengan terapi obat dokter.',
+        'referensi_url' => 'https://www.google.com/search?q=Mengenal+lebih+dekat+TOGA+di+sekitar+kita+jilid+2+Surabaya',
+        'referensi_teks' => 'Jayani, N.I.E., dkk. (2023) Mengenal lebih dekat TOGA di sekitar kita jilid 2. Surabaya: Universitas Surabaya.',
+        'affiliate_products' => [
+            ['nama' => 'Rimpang Lempuyang Wangi', 'harga' => 'Rp 15.000', 'gambar' => 'images/lempuyang_wangi.jpg', 'link' => 'https://shopee.co.id/search?keyword=lempuyang%20wangi']
+        ]
+    ],
+    'temu_putih' => [
+        'nama_lokal' => 'Temu Putih',
+        'nama_latin' => 'Curcuma zedoaria',
+        'gambar' => 'images/temu_putih.jpg',
+        'kandungan' => 'Rimpang mengandung zat warna kuning kurkumin, minyak atsiri, metip-pmetoksi-sinamat, dan seskuiterpenoid.',
+        'manfaat' => 'Mengatasi masalah kewanitaan, pembersih rahim pasca nifas, kudis, dan perut kembung.',
+        'bagian' => 'Rimpang',
+        'cara_pemanfaatan' => 'Rimpang temu putih 5 g, Kunir putih 5 g, Herba rumput mutiara 3 g, Air 600 ml dibuat infusa dan diminum 3x sehari.',
+        'keamanan' => 'Gunakan sesuai anjuran sediaan herbal.',
+        'interaksi' => 'Perhatikan interaksi obat khusus yang merujuk pada temu putih.',
+        'referensi_url' => 'https://www.google.com/search?q=Mengenal+lebih+dekat+TOGA+di+sekitar+kita+jilid+2+Surabaya',
+        'referensi_teks' => 'Jayani, N.I.E., dkk. (2023) Mengenal lebih dekat TOGA di sekitar kita jilid 2. Surabaya: Universitas Surabaya.',
+        'affiliate_products' => [
+            ['nama' => 'Kapsul Temu Putih', 'harga' => 'Rp 40.000', 'gambar' => 'images/temu_putih.jpg', 'link' => 'https://shopee.co.id/search?keyword=kapsul%20temu%20putih']
+        ]
+    ],
+    'jeruk_nipis' => [
+        'nama_lokal' => 'Jeruk Nipis',
+        'nama_latin' => 'Citrus aurantifolia',
+        'gambar' => 'images/jeruk_nipis.jpg',
+        'kandungan' => 'Buah: asam askorbat, fruktosa, pektin. Daun: bergapten, sitropten, eriositrin.',
+        'manfaat' => 'Mengobati sariawan, batuk, jerawat, demam, dan penyegar badan.',
+        'bagian' => 'Buah dan daun',
+        'cara_pemanfaatan' => 'Buah jeruk nipis 2 buah, Madu 5 ml, Asam jawa 3 g, Garam 0,5 g, Air 200 ml (diseduh air hangat).',
+        'keamanan' => 'Dapat menyebabkan phytophotodermatitis jika getah terkena kulit lalu terpapar sinar matahari.',
+        'interaksi' => 'Belum diketahui secara spesifik.',
+        'referensi_url' => 'https://www.google.com/search?q=Mengenal+lebih+dekat+TOGA+di+sekitar+kita+jilid+1+Surabaya',
+        'referensi_teks' => 'Jayani, N.I.E., dkk. (2022) Mengenal lebih dekat TOGA di sekitar kita jilid 1. Surabaya: Universitas Surabaya.',
+        'affiliate_products' => [
+            ['nama' => 'Perasan Jeruk Nipis Murni', 'harga' => 'Rp 25.000', 'gambar' => 'images/jeruk_nipis.jpg', 'link' => 'https://shopee.co.id/search?keyword=jeruk%20nipis']
+        ]
+    ],
+    'jambu_biji' => [
+        'nama_lokal' => 'Jambu Biji',
+        'nama_latin' => 'Psidium guajava',
+        'gambar' => 'images/jambu_biji.jpg',
+        'kandungan' => 'α-pinen, β-pinen, limonen, mentol, kariofilen, dan kurkumen.',
+        'manfaat' => 'Pengobatan utama diare, meredakan maag, dan sering berkemih (beser).',
+        'bagian' => 'Daun',
+        'cara_pemanfaatan' => 'Daun jambu biji 7 g, Kayu secang 5 g, Air 500 ml direbus selama 15 menit.',
+        'keamanan' => 'Penggunaan berlebihan dapat menyebabkan sembelit.',
+        'interaksi' => 'Dapat berpotensi memengaruhi obat diabetes dan pengencer darah.',
+        'referensi_url' => 'https://www.google.com/search?q=Pedoman+Penggunaan+Herbal+Badan+POM',
+        'referensi_teks' => 'Badan Pengawas Obat dan Makanan Republik Indonesia. (2020) Pedoman Penggunaan Herbal. Jakarta: Badan POM RI.',
+        'affiliate_products' => [
+            ['nama' => 'Teh Daun Jambu Biji', 'harga' => 'Rp 22.000', 'gambar' => 'images/jambu_biji.jpg', 'link' => 'https://shopee.co.id/search?keyword=teh%20daun%20jambu%20biji']
+        ]
+    ],
+    'kumis_kucing' => [
+        'nama_lokal' => 'Kumis Kucing',
+        'nama_latin' => 'Orthosiphon aristatus',
+        'gambar' => 'images/kumis_kucing.jpg',
+        'kandungan' => 'Diterpen tipe-isopimarana, staminol A & B, flavonoid (sinensetin, eupatorin), dan asam rosmarinat.',
+        'manfaat' => 'Peluruh batu ginjal, diuretik alami, dan meredakan encok.',
+        'bagian' => 'Daun',
+        'cara_pemanfaatan' => 'Daun kumis kucing 15 g, Air 200 ml diseduh air mendidih seperti teh.',
+        'keamanan' => 'Tidak diperbolehkan untuk terapi edema akibat gagal ginjal dan jantung.',
+        'interaksi' => 'Perhatikan penggunaan bersama obat diuretik.',
+        'referensi_url' => 'https://www.google.com/search?q=Formularium+Obat+Herbal+Asli+Indonesia+Kemenkes',
+        'referensi_teks' => 'Kementerian Kesehatan Republik Indonesia. (2016) Formularium Obat Herbal Asli Indonesia. Jakarta: Kemenkes RI.',
+        'affiliate_products' => [
+            ['nama' => 'Teh Celup Kumis Kucing', 'harga' => 'Rp 20.000', 'gambar' => 'images/kumis_kucing.jpg', 'link' => 'https://shopee.co.id/search?keyword=kumis%20kucing']
+        ]
+    ],
+    'meniran' => [
+        'nama_lokal' => 'Meniran',
+        'nama_latin' => 'Phyllanthus niruri',
+        'gambar' => 'images/meniran.jpg',
+        'kandungan' => 'Filantin dan kuersetin.',
+        'manfaat' => 'Pelindung hati (hepatoprotektor), penurun demam, peluruh kemih, dan penambah imunitas.',
+        'bagian' => 'Daun / Herba',
+        'cara_pemanfaatan' => 'Herba meniran 1 g, Kumis kucing 2 g, Air 110 ml direbus 15 menit.',
+        'keamanan' => 'Tidak dianjurkan untuk ibu hamil karena bersifat menggugurkan kandungan.',
+        'interaksi' => 'Dapat memperkuat efek insulin, obat antidiabetik, dan obat antihipertensi.',
+        'referensi_url' => 'https://www.google.com/search?q=The+Healing+Power+of+Rainforest+Herbs+Taylor',
+        'referensi_teks' => 'Taylor, L. (2003) The Healing Power of Rainforest Herbs. Square One Publishers.',
+        'affiliate_products' => [
+            ['nama' => 'Kapsul Meniran Ekstrak', 'harga' => 'Rp 35.000', 'gambar' => 'images/meniran.jpg', 'link' => 'https://shopee.co.id/search?keyword=kapsul%20meniran']
+        ]
+    ],
+    'brotowali' => [
+        'nama_lokal' => 'Brotowali',
+        'nama_latin' => 'Tinospora crispa',
+        'gambar' => 'images/brotowali.jpg',
+        'kandungan' => 'Alkaloid berberin dan tinokrisposida.',
+        'manfaat' => 'Mengontrol diabetes, meredakan radang, demam, serta gangguan lambung.',
+        'bagian' => 'Batang',
+        'cara_pemanfaatan' => 'Batang brotowali 5 g, Sambiloto 3 g, Air 110 ml direbus selama 15 menit.',
+        'keamanan' => 'Hindari pada pasien dengan gangguan fungsi hati dan ginjal.',
+        'interaksi' => 'Berpotensi meningkatkan risiko hipoglikemia bersama obat antidiabetes.',
+        'referensi_url' => 'https://www.google.com/search?q=Formularium+Ramuan+Obat+Tradisional+Indonesia+Kemenkes',
+        'referensi_teks' => 'Kementerian Kesehatan Republik Indonesia. (2017) Formularium Ramuan Obat Tradisional Indonesia. Jakarta: Kemenkes RI.',
+        'affiliate_products' => [
+            ['nama' => 'Herbal Batang Brotowali Kering', 'harga' => 'Rp 18.000', 'gambar' => 'images/brotowali.jpg', 'link' => 'https://shopee.co.id/search?keyword=brotowali']
+        ]
+    ],
+    'blimbing_wuluh' => [
+        'nama_lokal' => 'Blimbing Wuluh',
+        'nama_latin' => 'Averrhoa bilimbi',
+        'gambar' => 'images/blimbing_wuluh.jpg',
+        'kandungan' => 'Saponin, tannin, glukosida, kalsium oksalat, sulfur, dan asam oksalat.',
+        'manfaat' => 'Mengobati batuk rejan, jerawat, obat gondok, encok, dan pegal linu.',
+        'bagian' => 'Daun, bunga, dan buah',
+        'cara_pemanfaatan' => 'Bunga blimbing wuluh 25 kuntum dan bahan lainnya direbus dalam 5 gelas air.',
+        'keamanan' => 'Konsumsi berlebih dapat berisiko pada fungsi hepar (hati).',
+        'interaksi' => 'Dapat menghambat aktivitas enzim CYP3A4.',
+        'referensi_url' => 'https://www.google.com/search?q=Mengenal+lebih+dekat+TOGA+di+sekitar+kita+jilid+1+Surabaya',
+        'referensi_teks' => 'Jayani, N.I.E., dkk. (2022) Mengenal lebih dekat TOGA di sekitar kita jilid 1. Surabaya: Universitas Surabaya.',
+        'affiliate_products' => [
+            ['nama' => 'Ekstrak Blimbing Wuluh', 'harga' => 'Rp 30.000', 'gambar' => 'images/blimbing_wuluh.jpg', 'link' => 'https://shopee.co.id/search?keyword=blimbing%20wuluh']
+        ]
+    ],
+    'mahkota_dewa' => [
+        'nama_lokal' => 'Mahkota Dewa',
+        'nama_latin' => 'Phaleria macrocarpa',
+        'gambar' => 'images/mahkota_dewa.jpg',
+        'kandungan' => 'Daun: antihistamin, alkaloid, saponin, polifenol. Buah/kulit buah: alkaloid, saponin, flavonoid.',
+        'manfaat' => 'Menurunkan kadar gula darah, mengatasi rematik, disentri, dan eksim.',
+        'bagian' => 'Kulit buah, daun, dan batang',
+        'cara_pemanfaatan' => 'Kulit buah mahkota dewa kering 15 g direbus dengan 2 gelas air selama 15 menit.',
+        'keamanan' => 'Dapat beracun jika salah pengolahan; hindari pada wanita haid dan ibu hamil.',
+        'interaksi' => 'Berpotensi meningkatkan risiko hipoglikemia bersama obat antidiabetes.',
+        'referensi_url' => 'https://www.google.com/search?q=Pedoman+Penggunaan+Herbal+Badan+POM',
+        'referensi_teks' => 'Badan Pengawas Obat dan Makanan Republik Indonesia. (2020) Pedoman Penggunaan Herbal. Jakarta: Badan POM RI.',
+        'affiliate_products' => [
+            ['nama' => 'Teh Kulit Mahkota Dewa', 'harga' => 'Rp 25.000', 'gambar' => 'images/mahkota_dewa.jpg', 'link' => 'https://shopee.co.id/search?keyword=mahkota%20dewa']
+        ]
+    ],
+    'daun_salam' => [
+        'nama_lokal' => 'Daun Salam',
+        'nama_latin' => 'Syzygium polyanthum',
+        'gambar' => 'images/daun_salam.jpg',
+        'kandungan' => 'Sitral, eugenol, tanin, flavonoid (kuersetin), saponin, polifenol, dan alkaloid.',
+        'manfaat' => 'Antihipertensi ringan, antihiperkolesterol, dan antibakteri penyebab diare.',
+        'bagian' => 'Daun',
+        'cara_pemanfaatan' => 'Daun salam 3 g, Kulit kayu manis 5 g, Buah kapulaga 2 g direbus selama 15 menit.',
+        'keamanan' => 'Dapat memicu gangguan saluran pencernaan atau reaksi alergi pada sebagian orang.',
+        'interaksi' => 'Berpotensi meningkatkan risiko hipoglikemia jika dikonsumsi bersamaan obat antidiabetes.',
+        'referensi_url' => 'https://www.google.com/search?q=Mengenal+lebih+dekat+TOGA+di+sekitar+kita+jilid+1+Surabaya',
+        'referensi_teks' => 'Jayani, N.I.E., dkk. (2022) Mengenal lebih dekat TOGA di sekitar kita jilid 1. Surabaya: Universitas Surabaya.',
+        'affiliate_products' => [
+            ['nama' => 'Teh Daun Salam Kering', 'harga' => 'Rp 15.000', 'gambar' => 'images/daun_salam.jpg', 'link' => 'https://shopee.co.id/search?keyword=daun%20salam']
+        ]
+    ],
+    'kayu_putih' => [
+        'nama_lokal' => 'Kayu Putih',
+        'nama_latin' => 'Melaleuca leucadendra',
+        'gambar' => 'images/kayu_putih.jpg',
+        'kandungan' => 'Minyak atsiri sineol, terpineol, varelaldehida, dan benzaldehida.',
+        'manfaat' => 'Menyembuhkan rematik, meredakan batuk, serta menghangatkan tubuh.',
+        'bagian' => 'Daun',
+        'cara_pemanfaatan' => 'Daun kayu putih 13 g direbus dengan 2 gelas air hingga tersisa setengahnya.',
+        'keamanan' => 'Dapat menyebabkan rasa terbakar di ulu hati, mual, muntah, atau pusing.',
+        'interaksi' => 'Minyak kayu putih berpotensi meningkatkan risiko hipoglikemia bersama obat antidiabetes dan menghambat enzim CYP2D6.',
+        'referensi_url' => 'https://www.google.com/search?q=Mengenal+lebih+dekat+TOGA+di+sekitar+kita+jilid+1+Surabaya',
+        'referensi_teks' => 'Jayani, N.I.E., dkk. (2022) Mengenal lebih dekat TOGA di sekitar kita jilid 1. Surabaya: Universitas Surabaya.',
+        'affiliate_products' => [
+            ['nama' => 'Minyak Kayu Putih Asli', 'harga' => 'Rp 35.000', 'gambar' => 'images/kayu_putih.jpg', 'link' => 'https://shopee.co.id/search?keyword=minyak%20kayu%20putih']
+        ]
+    ]
 ];
 
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 1;
-$plant = isset($plants[$id]) ? $plants[$id] : $plants[1];
+$id = isset($_GET['id']) ? $_GET['id'] : 'kunyit';
+$plant = isset($plants[$id]) ? $plants[$id] : $plants['kunyit'];
+
+$google_image_url = "https://www.google.com/search?tbm=isch&q=" . urlencode($plant['nama_latin']);
+$bing_image_url = "https://www.bing.com/images/search?q=" . urlencode($plant['nama_latin']);
 ?>
 
-<div class="container" style="margin-top: 30px; margin-bottom: 40px;">
-    <a href="index.php" style="text-decoration: none; color: #2e7d32; font-weight: bold;">← Kembali ke Galeri</a>
+<style>
+    .detail-container { display: flex; gap: 30px; align-items: flex-start; margin-top: 20px; }
+    .detail-main { flex: 3; background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .detail-sidebar { flex: 1; position: sticky; top: 20px; display: flex; flex-direction: column; gap: 20px; }
+    
+    .plant-image-box { width: 100%; max-width: 320px; height: 240px; margin: 0 auto 10px auto; background-color: #f9f9f9; border-radius: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; }
+    .plant-image-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-    <div class="detail-card" style="background: white; padding: 25px; border-radius: 8px; border: 1px solid #e0e0e0; margin-top: 15px; display: flex; gap: 25px; flex-wrap: wrap;">
-        
-        <!-- Foto Tanaman -->
-        <div style="flex: 1; min-width: 250px; max-width: 350px;">
-            <img src="<?php echo $plant['gambar']; ?>" alt="<?php echo $plant['nama_lokal']; ?>" style="width: 100%; aspect-ratio: 1/1; object-fit: contain; background: #fff; border-radius: 8px; border: 1px solid #eee;">
-        </div>
+    .external-search-box { text-align: center; margin-bottom: 25px; padding: 12px; background: #fdfdfd; border-radius: 8px; border: 1px dashed #cccccc; width: 100%; max-width: 320px; margin-left: auto; margin-right: auto; }
+    .external-search-title { font-size: 0.88rem; color: #333; font-weight: 600; margin-bottom: 8px; }
+    .external-links-group { display: flex; justify-content: center; gap: 15px; font-size: 0.88rem; }
+    .ext-link { color: #2e7d32; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+    .ext-link:hover { text-decoration: underline; color: #1b5e20; }
 
-        <!-- Informasi Tanaman -->
-        <div style="flex: 2; min-width: 300px;">
-            <h2 style="margin-top: 0; color: #1b5e20; margin-bottom: 5px;"><?php echo $plant['nama_lokal']; ?></h2>
-            <h4 style="margin-top: 0; color: #555; font-style: italic; font-weight: normal; margin-bottom: 15px;"><?php echo $plant['nama_latin']; ?></h4>
-            
-            <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 15px;">
+    .detail-title { color: #2e7d32; font-weight: bold; font-size: 2rem; margin-bottom: 2px; }
+    .detail-latin { font-style: italic; color: #666; font-size: 1rem; margin-bottom: 20px; }
+    
+    .section-head { 
+        color: #1b5e20; 
+        font-weight: 900 !important; 
+        font-size: 1.15rem; 
+        margin-top: 25px; 
+        margin-bottom: 10px; 
+        border-bottom: 2px solid #e8f5e9; 
+        padding-bottom: 5px; 
+    }
 
-            <p style="line-height: 1.6; color: #444;"><?php echo $plant['deskripsi']; ?></p>
+    .consult-popup-card { background: #ffffff; border: 1px solid #ddd; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .btn-consult-popup { display: block; width: 100%; padding: 10px; border-radius: 25px; text-decoration: none; font-weight: bold; color: white; background: #0d6efd; margin-top: 10px; }
 
-            <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px;">
-                <p style="margin: 0;"><strong>🧪 Kandungan Chemical/Nutrisi:</strong><br> <?php echo $plant['kandungan']; ?></p>
-                <p style="margin: 0;"><strong>🌿 Manfaat & Khasiat:</strong><br> <?php echo $plant['khasiat']; ?></p>
-                <p style="margin: 0;"><strong>🌱 Bagian yang Digunakan:</strong><br> <?php echo $plant['bagian_dipakai']; ?></p>
-                <p style="margin: 0;"><strong>💊 Cara Pemanfaatan / Sediaan:</strong><br> <?php echo $plant['sediaan']; ?></p>
-                <p style="margin: 0;"><strong>📝 Aturan Pakai / Cara Pemakaian:</strong><br> <?php echo $plant['aturan_pakai']; ?></p>
-                <p style="margin: 0;"><strong>⚠️ Keamanan & Efek Samping:</strong><br> <?php echo $plant['keamanan']; ?></p>
-                
-                <!-- REFERENSI PUSTAKA -->
-                <p style="margin: 0; padding-top: 8px; border-top: 1px dashed #ccc;">
-                    <strong>📚 Referensi Pustaka:</strong><br>
-                    <a href="<?php echo $plant['link_referensi']; ?>" target="_blank" style="color: #1b5e20; text-decoration: underline; font-weight: 500;">
-                        📖 <?php echo $plant['referensi']; ?> (Klik untuk buka literatur)
-                    </a>
-                </p>
+    .affiliate-card { background: #ffffff; border: 2px solid #ffcc80; border-radius: 12px; padding: 15px; text-align: center; box-shadow: 0 4px 12px rgba(255, 152, 0, 0.1); }
+    .affiliate-badge { background-color: #fff3e0; color: #e65100; font-size: 0.75rem; font-weight: bold; padding: 3px 8px; border-radius: 10px; display: inline-block; margin-bottom: 8px; }
+    
+    .product-item { display: flex; align-items: center; gap: 10px; background: #fff8f0; border: 1px solid #ffe0b2; border-radius: 8px; padding: 8px; margin-bottom: 8px; text-align: left; text-decoration: none; transition: 0.2s; }
+    .product-item:hover { background: #ffe0b2; }
+    .product-img { width: 50px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; }
+    .product-name { font-size: 0.82rem; font-weight: bold; color: #333; margin: 0; line-height: 1.2; }
+    .product-price { font-size: 0.78rem; color: #e65100; font-weight: bold; margin: 0; }
+
+    @media (max-width: 768px) { .detail-container { flex-direction: column; } .detail-sidebar { width: 100%; } }
+</style>
+
+<div class="container my-4">
+    <a href="index.php" class="btn btn-outline-success btn-sm mb-3">← Kembali ke Katalog</a>
+
+    <div class="detail-container">
+        <div class="detail-main">
+            <h1 class="detail-title"><?php echo $plant['nama_lokal']; ?></h1>
+            <div class="detail-latin"><?php echo $plant['nama_latin']; ?></div>
+
+            <div class="plant-image-box">
+                <img src="<?php echo $plant['gambar']; ?>?v=<?php echo time(); ?>" alt="<?php echo $plant['nama_lokal']; ?>">
             </div>
 
-            <!-- REKOMENDASI PRODUK (AFFILIATE) -->
-            <div style="margin-top: 25px; padding: 15px; background-color: #f4fbf7; border-radius: 8px; border: 1px solid #c8e6c9;">
-                <span style="font-size: 0.75rem; background: #2e7d32; color: white; padding: 3px 8px; border-radius: 4px; font-weight: bold;">⭐ REKOMENDASI PRODUK</span>
-                <h3 style="margin: 10px 0 15px 0; color: #1b5e20; font-size: 1.1rem;"><?php echo $plant['nama_produk']; ?></h3>
-                <a href="<?php echo $plant['link_affiliate']; ?>" target="_blank" rel="nofollow" style="background-color: #ee4d2d; color: white; padding: 10px 18px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 0.9rem; display: inline-block;">
-                    🛒 Beli Produk Resmi Sekarang
+            <!-- Tanda / Link Cari Foto di Internet -->
+            <div class="external-search-box">
+                <div class="external-search-title">🖼️ Foto-foto <i><?php echo $plant['nama_latin']; ?></i> di internet:</div>
+                <div class="external-links-group">
+                    <a href="<?php echo $bing_image_url; ?>" target="_blank" class="ext-link">
+                        🔍 Bing Images ↗
+                    </a>
+                    <a href="<?php echo $google_image_url; ?>" target="_blank" class="ext-link">
+                        🔍 Google Images ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="section-head">Kandungan</div>
+            <p><?php echo $plant['kandungan']; ?></p>
+
+            <div class="section-head">Manfaat</div>
+            <p><?php echo $plant['manfaat']; ?></p>
+
+            <div class="section-head">Bagian yang Digunakan</div>
+            <p><?php echo $plant['bagian']; ?></p>
+
+            <div class="section-head">Cara Pemanfaatan / Pemakaian</div>
+            <p><?php echo $plant['cara_pemanfaatan']; ?></p>
+
+            <div class="section-head">Keamanan</div>
+            <p><?php echo $plant['keamanan']; ?></p>
+
+            <div class="section-head">Interaksi dengan Obat</div>
+            <p><?php echo $plant['interaksi']; ?></p>
+
+            <div class="section-head">Referensi</div>
+            <p style="font-size: 0.85rem; color: #555;">
+                <a href="<?php echo $plant['referensi_url']; ?>" target="_blank" style="color: #2e7d32; text-decoration: none; font-weight: 600;">
+                    🔗 <?php echo $plant['referensi_teks']; ?>
+                </a>
+            </p>
+        </div>
+
+        <div class="detail-sidebar">
+            <div class="consult-popup-card">
+                <h4 style="color: #2e7d32; font-weight: bold; margin-bottom: 8px;">Tanya Dokter & Apoteker</h4>
+                <p style="font-size: 0.85rem; color: #555;">Konsultasikan dosis dan keamanan produk herbal ini dengan ahli medis.</p>
+                <a href="https://wa.me/62895326133068?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20tanaman%20<?php echo urlencode($plant['nama_lokal']); ?>" target="_blank" class="btn-consult-popup">
+                    💬 Mulai Konsultasi
                 </a>
             </div>
 
-            <!-- KONSULTASI APOTEKER & DOKTER VIA WHATSAPP -->
-            <div style="margin-top: 20px; background: #e8f5e9; padding: 15px; border-radius: 6px; border-left: 4px solid #2e7d32; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                <div>
-                    <strong style="color: #1b5e20;">💊 Butuh penyesuaian dosis <?php echo $plant['nama_lokal']; ?>?</strong>
-                    <p style="margin: 3px 0 0 0; font-size: 0.85rem; color: #555;">Konsultasikan langsung dengan Dokter atau Apoteker kami.</p>
-                </div>
-                <div style="display: flex; gap: 8px;">
-                    <a href="https://wa.me/62895326133068?text=Halo%20Apoteker,%20saya%20mau%20tanya%20dosis%20penggunaan%20<?php echo urlencode($plant['nama_lokal']); ?>" target="_blank" style="background-color: #25d366; color: white; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem;">
-                        💬 Tanya Apoteker
-                    </a>
-                    <a href="https://wa.me/62895326133068?text=Halo%20Dokter,%20saya%20mau%20tanya%20terkait%20terapi%20<?php echo urlencode($plant['nama_lokal']); ?>" target="_blank" style="background-color: #0288d1; color: white; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem;">
-                        🩺 Tanya Dokter
-                    </a>
-                </div>
+            <div class="affiliate-card">
+                <span class="affiliate-badge">🛒 Rekomendasi Produk Olahan</span>
+                <h6 style="color: #e65100; font-weight: bold; font-size: 0.95rem; margin-bottom: 10px;">Pilihan Produk <?php echo $plant['nama_lokal']; ?></h6>
+                
+                <?php if (!empty($plant['affiliate_products'])): ?>
+                    <?php foreach ($plant['affiliate_products'] as $prod): ?>
+                        <a href="<?php echo $prod['link']; ?>" target="_blank" class="product-item">
+                            <img src="<?php echo $prod['gambar']; ?>?v=<?php echo time(); ?>" alt="<?php echo $prod['nama']; ?>" class="product-img">
+                            <div>
+                                <p class="product-name"><?php echo $prod['nama']; ?></p>
+                                <p class="product-price"><?php echo $prod['harga']; ?></p>
+                            </div>
+                        </a>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p class="small text-muted">Belum ada produk afiliasi untuk tanaman ini.</p>
+                <?php endif; ?>
             </div>
-
         </div>
-
     </div>
 </div>
 
