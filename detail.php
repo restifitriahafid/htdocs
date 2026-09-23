@@ -401,6 +401,22 @@ $plants = [
         'affiliate_products' => [
             ['nama' => 'Minyak Kayu Putih Asli', 'harga' => 'Rp 35.000', 'gambar' => 'images/kayu_putih.jpg', 'link' => 'https://shopee.co.id/search?keyword=minyak%20kayu%20putih']
         ]
+    ],
+    'tapak_dara' => [
+        'nama_lokal' => 'Tapak Dara',
+        'nama_latin' => 'Catharanthus roseus (L.) G. Don',
+        'gambar' => 'images/tapak_dara.jpg',
+        'kandungan' => 'Mengandung senyawa alkaloid seperti vinblastin, vinkristin, vindolin, dan katarantin.',
+        'manfaat' => 'Membantu mempercepat proses penyembuhan luka, seperti luka lecet dan luka bakar ringan.',
+        'bagian' => 'Daun',
+        'cara_pemanfaatan' => 'Luka baru: 2–5 lembar daun tapak dara dihaluskan, kemudian ditempelkan pada luka baru. <br>Penggunaan oral (Obat tradisional): 4–8 gram daun tapak dara direbus dalam air selama sekitar 30 menit pada suhu 90–96°C.',
+        'keamanan' => 'Penggunaan daun tapak dara harus hati-hati, terutama jika diminum. Penggunaan yang tidak tepat dapat menimbulkan efek yang tidak diinginkan. Tanaman ini juga tidak dianjurkan untuk ibu hamil dan menyusui.',
+        'interaksi' => 'Daun tapak dara dapat memengaruhi kerja enzim tubuh yang membantu memproses beberapa obat. Karena itu, penggunaannya perlu diperhatikan jika sedang mengonsumsi obat seperti amitriptilin, imipramin, haloperidol, propranolol, atau dekstrometorfan.',
+        'referensi_url' => 'https://www.google.com/search?q=Acuan+Sediaan+Herbal+Vol+7+edisi+1+Direktorat+Obat+Asli+Indonesia+BPOM+RI+2012',
+        'referensi_teks' => 'Badan Pengawas Obat dan Makanan Republik Indonesia. (2012) Acuan Sediaan Herbal. Vol. 7, edisi 1. Jakarta: BPOM RI.',
+        'affiliate_products' => [
+            ['nama' => 'Ekstrak Tapak Dara Kapsul', 'harga' => 'Rp 45.000', 'gambar' => 'images/tapak_dara.jpg', 'link' => 'https://shopee.co.id/search?keyword=tapak%20dara']
+        ]
     ]
 ];
 
@@ -470,10 +486,10 @@ $bing_image_url = "https://www.bing.com/images/search?q=" . urlencode($plant['na
                 <div class="external-search-title">🖼️ Foto-foto <i><?php echo $plant['nama_latin']; ?></i> di internet:</div>
                 <div class="external-links-group">
                     <a href="<?php echo $bing_image_url; ?>" target="_blank" class="ext-link">
-                        🔍 Bing Images ↗
+                        🔍 Bing Images ↗️
                     </a>
                     <a href="<?php echo $google_image_url; ?>" target="_blank" class="ext-link">
-                        🔍 Google Images ↗
+                        🔍 Google Images ↗️
                     </a>
                 </div>
             </div>
